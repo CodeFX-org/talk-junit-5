@@ -11,6 +11,7 @@
 :revealjs_parallaxBackgroundSize: 4096px 2731px
 
 ++++
+<h2>The Future of Testing<br>on the JVM</h2>
 <div class="event">
 	<div class="participant">
 		<img src="images/logo-nipa.png" class="logo">
