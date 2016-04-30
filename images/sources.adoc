@@ -1,0 +1,7 @@
+== Image Credits
+
+=== soap-bubbles.jpg
+
+https://www.flickr.com/photos/elwillo/5172528284/[Soap bubbles 4]:
+https://www.flickr.com/photos/elwillo/[Keith Williamson]
+(https://creativecommons.org/licenses/by/2.0/[CC-BY 2.0])
