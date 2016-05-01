@@ -336,3 +336,284 @@ That's all very nice but where is the <br>
 </p>
 ++++
 
+
+
+// ################### //
+// E X T E N S I O N S //
+// ################### //
+
+
+[data-state="no-title"]
+== Extensions
+
+++++
+<table class="toc">
+	<tr><td class="tg-yw4l">Basics</td></tr>
+	<tr class="toc-current"><td class="tg-yw4l">Extensions</td></tr>
+	<tr><td class="tg-yw4l">Architecture</td></tr>
+	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+</table>
+++++
+
+
+=== Extensions in JUnit 4
+
+++++
+<h3>Runners</h3>
+++++
+
+Manage a test's full lifecycle.
+
+```java
+@RunWith(MockitoJUnitRunner.class)
+public class MyTest { ... }
+```
+
+* very flexible
+* heavyweight
+* exclusive
+
+
+=== Extensions in JUnit 4
+
+++++
+<h3>Rules</h3>
+++++
+
+Execute code before and after statements.
+
+```java
+public class MyTest {
+	@Rule
+	public MockitoRule rule =
+		MockitoJUnit.rule();
+}
+```
+
+* added in 4.7
+* lightweight
+* limited to before/after behavior
+
+
+=== Extensions in JUnit 4
+
+Extension model is not optimal:
+
+* two competing mechanisms
+** each with limitations
+** but with considerable overlap
+* composition can cause problems
+
+
+=== JUnit 5's Approach
+
+From JUnit 5's
+https://github.com/junit-team/junit5/wiki/Core-Principles[Core Principles]:
+
+> Prefer extension points over features
+
+Quite literally JUnit 5 has _Extension Points_
+
+
+=== Extension Points
+
+// TODO consider creating a table that shows "JUnit steps" on the left and extension points on the right
+
+* BeforeAll Callback
+* Test Instance Post Processing
+* Conditional Test Execution
+* BeforeEach Callback
+* Parameter Resolution
+* Exception Handling
+* AfterEach Callback
+* AfterAll Callback
+
+
+=== Implementing Extensions
+
+* one interface for each extension point
+* method arguments capture context
+
+```java
+public interface BeforeEachExtensionPoint
+		extends ExtensionPoint {
+
+	void beforeEach(
+		TestExtensionContext context)
+		throws Exception;
+}
+```
+
+* an extension can use multiple points +
+to implement its feature
+
+
+=== Benchmark Extension
+
+We want to benchmark our tests!
+
+* for each test method
+* write the runtime to console
+
+How?
+
+* store test launch time _before each_ test
+* compute runtime and print _after each_ test
+
+
+=== Benchmark Extension
+
+```java
+public class BenchmarkExtension implements
+		BeforeEachExtensionPoint,
+		AfterEachExtensionPoint {
+
+	private long launchTime;
+
+	// ...
+}
+```
+
+
+=== Benchmark Extension
+
+```java
+@Override
+public void beforeEach(
+		TestExtensionContext context) {
+	launchTime = currentTimeMillis();
+}
+
+@Override
+public void afterEach(
+		TestExtensionContext context) {
+	printf("Test '%s' took %d ms.%n",
+		context.getDisplayName(),
+		currentTimeMillis() - launchTime);
+}
+```
+
+
+=== Other Examples
+
+Remember This?
+
+```java
+@Test
+@DisabledOnFriday
+void failingTest() {
+	assertTrue(false);
+}
+```
+
+Let's see how it works!
+
+
+=== Disabled Extension
+
+```java
+public class DisabledOnFridayCondition
+		implements TestExecutionCondition {
+	@Override
+	public ConditionEvaluationResult evaluate(
+			TestExtensionContext context) {
+		if (isFriday())
+			return disabled("Happy Weekend!");
+		else
+			return enabled("Fix it!");
+	}
+}
+```
+
+
+=== Other Examples
+
+What about parameter injection?
+
+```java
+@Test
+void someTest(MyServer server) {
+	// do something with `server`
+}
+```
+
+
+=== Parameter Injection
+
+```java
+public class MyServerParameterResolver
+		implements MethodParameterResolver {
+	@Override
+	public boolean supports(
+			Parameter parameter, ... ) {
+		return parameter.getType()
+				== MyServer.class;
+	}
+	@Override
+	public Object resolve( ... ) {
+		return new MyServer();
+	}
+}
+```
+
+
+=== Applying Extensions
+
+How do we apply extensions?
+
+```java
+@ExtendWith(DisabledOnFridayCondition.class)
+class JUnit5Test {
+	...
+}
+```
+
+That's technical and verbose... :(
+
+
+=== Applying Extensions
+
+https://en.wikibooks.org/wiki/Java_Programming/Annotations/Meta-Annotations[Meta-annotations] to the rescue!
+
+* JUnit 5's annotations are meta-annotations
+* JUnit 5 checks recursively for annotations
+* ⇝ we can create our own annotations!
+
+
+=== Creating Annotations
+
+```java
+@ExtendWith(DisabledOnFridayCondition.class)
+public @interface DisabledOnFriday { }
+
+@Test
+@Tag("integration")
+@ExtendWith(BenchmarkExtension.class)
+@ExtendWith(MyServerParameterResolver.class)
+public @interface IntegrationTest { }
+
+@IntegrationTest
+@DisabledOnFriday
+void testLogin(MyServer server) { ... }
+```
+
+
+=== Extensions
+
+++++
+<h3>Summary</h3>
+++++
+
+* flexibility due to many points
+* extensions compose well
+* customizable due to meta-annotations
+
+(We left out some details;
+http://blog.codefx.org/design/architecture/junit-5-extension-model/[read more])
+
+++++
+<p class="fragment current-visible">
+That's all very nice but where is the <br>
+<i>Future of Testing on the JVM</i>?
+</p>
+++++
