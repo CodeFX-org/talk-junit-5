@@ -89,7 +89,7 @@
 === What's New?
 
 ```java
-class Lifecycle {
+class JUnit5Test {
 
 	@Test
 	void someTest() {
@@ -141,7 +141,7 @@ void failingTest() {
 
 ```java
 @Test
-@DisabledOnFridayAfternoon
+@DisabledOnFriday
 void failingTest() {
 	assertTrue(false);
 }
@@ -212,7 +212,7 @@ Output if `assertAll` fails:
 
 ```bash
 org.opentest4j.MultipleFailuresError:
-    address (3 failures)
+	address (3 failures)
 	expected: <C> but was: <City>
 	expected: <Str> but was: <Street>
 	expected: <63> but was: <42>
@@ -305,7 +305,7 @@ image::images/testing-a-stack.png[]
 
 ```java
 @Test
-void someTest(MySpecialServer server) {
+void someTest(MyServer server) {
 	// do something with `server`
 }
 ```
