@@ -316,3 +316,23 @@ void someTest(MyServer server) {
 	<p>But where does it come from?</p>
 </div>
 ++++
+
+=== What's New?
+
+++++
+<h3>Summary</h3>
+++++
+
+* lifecycle works much like before
+* many details were improved
+* `@Nested` & `DisplayName` +
+make a nice couple
+* parameter injection
+
+++++
+<p class="fragment current-visible">
+That's all very nice but where is the <br>
+<i>Future of Testing on the JVM</i>?
+</p>
+++++
+
