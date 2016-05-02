@@ -11,7 +11,7 @@
 :revealjs_parallaxBackgroundSize: 4096px 2731px
 
 ++++
-<h2>The Future of Testing<br>on the JVM</h2>
+<h2>Next Generation Testing<br>on the JVM</h2>
 <div class="event">
 	<div class="participant">
 		<img src="images/logo-nipa.png" class="logo">
@@ -328,11 +328,12 @@ void someTest(MyServer server) {
 * `@Nested` & `DisplayName` +
 make a nice couple
 * parameter injection
+* no lambdas (so far)
 
 ++++
 <p class="fragment current-visible">
-That's all very nice but where is the <br>
-<i>Future of Testing on the JVM</i>?
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
 </p>
 ++++
 
