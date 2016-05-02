@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>JUnit 5</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/nipa-night.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script type="text/javascript">document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title-slide" data-state="title-slide"><h1>JUnit 5</h1><h2>The Future of Testing<br>on the JVM</h2>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>JUnit 5</title><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui" name="viewport"><link href="reveal.js/css/reveal.css" rel="stylesheet"><link rel="stylesheet" href="reveal.js/css/theme/nipa-night.css" id="theme"><link href="reveal.js/lib/css/zenburn.css" rel="stylesheet"><script type="text/javascript">document.write( '<link rel="stylesheet" href="reveal.js/css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );</script></head><body><div class="reveal"><div class="slides"><section class="title-slide" data-state="title-slide"><h1>JUnit 5</h1><h2>Next Generation Testing<br>on the JVM</h2>
 <div class="event">
 	<div class="participant">
 		<img src="images/logo-nipa.png" class="logo">
@@ -78,7 +78,7 @@ void failingTest() {
 void failingTest() {
 	assertTrue(false);
 }</code></pre></div></div>
-<p class="fragment current-visible" data-fragment-index="1">⇝ Convenient Extensibility.</p>
+<p class="fragment current-visible" data-fragment-index="0">⇝ Convenient Extensibility.</p>
 <p class="fragment current-visible" data-fragment-index="1">But how?</p></section><section id="_what_s_new_5"><h2>What&#8217;s New?</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@Test
 void someTest() {
 	...
@@ -161,10 +161,10 @@ void someTest(MyServer server) {
 	<p>But where does it come from?</p>
 </div></section><section id="_what_s_new_15"><h2>What&#8217;s New?</h2><h3>Summary</h3>
 <div class="ulist"><ul><li><p>lifecycle works much like before</p></li><li><p>many details were improved</p></li><li><p><code>@Nested</code> &amp; <code>DisplayName</code><br>
-make a nice couple</p></li><li><p>parameter injection</p></li></ul></div>
+make a nice couple</p></li><li><p>parameter injection</p></li><li><p>no lambdas (so far)</p></li></ul></div>
 <p class="fragment current-visible">
-That's all very nice but where is the <br>
-<i>Future of Testing on the JVM</i>?
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
 </p></section></section>
 <section><section id="_extensions" data-state="no-title"><h2>Extensions</h2><table class="toc">
 	<tr><td class="tg-yw4l">Basics</td></tr>
@@ -183,7 +183,7 @@ public class MyTest { ... }</code></pre></div></div>
 		MockitoJUnit.rule();
 }</code></pre></div></div>
 <div class="ulist"><ul><li><p>added in 4.7</p></li><li><p>lightweight</p></li><li><p>limited to before/after behavior</p></li></ul></div></section><section id="_extensions_in_junit_4_3"><h2>Extensions in JUnit 4</h2><div class="paragraph"><p>Extension model is not optimal:</p></div>
-<div class="ulist"><ul><li><p>two competing mechanisms</p><div class="ulist"><ul><li><p>each with limitations</p></li><li><p>but with considerable overlap</p></li></ul></div></li><li><p>composition can cause problems</p></li></ul></div></section><section id="_junit_5_s_approach"><h2>JUnit 5&#8217;s Approach</h2><div class="paragraph"><p>From JUnit 5&#8217;s
+<div class="ulist"><ul><li><p>two competing mechanisms</p><div class="ulist"><ul><li><p>each with limitations</p></li><li><p>but with considerable overlap</p></li></ul></div></li><li><p>composition can cause problems</p></li></ul></div></section><section id="_approach_in_junit_5"><h2>Approach in JUnit 5</h2><div class="paragraph"><p>From JUnit 5&#8217;s
 <a href="https://github.com/junit-team/junit5/wiki/Core-Principles">Core Principles</a>:</p></div>
 <div class="quoteblock"><blockquote><div class="paragraph"><p>Prefer extension points over features</p></div></blockquote></div>
 <div class="paragraph"><p>Quite literally JUnit 5 has <em>Extension Points</em></p></div></section><section id="_extension_points"><h2>Extension Points</h2><div class="ulist"><ul><li><p>BeforeAll Callback</p></li><li><p>Test Instance Post Processing</p></li><li><p>Conditional Test Execution</p></li><li><p>BeforeEach Callback</p></li><li><p>Parameter Resolution</p></li><li><p>Exception Handling</p></li><li><p>AfterEach Callback</p></li><li><p>AfterAll Callback</p></li></ul></div></section><section id="_implementing_extensions"><h2>Implementing Extensions</h2><div class="ulist"><ul><li><p>one interface for each extension point</p></li><li><p>method arguments capture context</p></li></ul></div>
@@ -271,9 +271,61 @@ void testLogin(MyServer server) { ... }</code></pre></div></div></section><secti
 <div class="paragraph"><p>(We left out some details;
 <a href="http://blog.codefx.org/design/architecture/junit-5-extension-model/">read more</a>)</p></div>
 <p class="fragment current-visible">
-That's all very nice but where is the <br>
-<i>Future of Testing on the JVM</i>?
-</p></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
+</p></section></section>
+<section><section id="_architecture" data-state="no-title"><h2>Architecture</h2><table class="toc">
+	<tr><td class="tg-yw4l">Basics</td></tr>
+	<tr><td class="tg-yw4l">Extensions</td></tr>
+	<tr class="toc-current"><td class="tg-yw4l">Architecture</td></tr>
+	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+</table></section><section id="_junit_4_architecture"><h2>JUnit 4 Architecture</h2><div class="ulist"><ul><li><p>a single JAR (ignoring Hamcrest)</p></li><li><p>used by</p><div class="ulist"><ul><li><p>developers</p></li><li><p>extensions</p></li><li><p>IDEs, build-tools</p></li></ul></div></li><li><p>no separation of concerns</p></li></ul></div></section><section id="_junit_4_architecture_2"><h2>JUnit 4 Architecture</h2><div class="ulist"><ul><li><p>tools provide us with awesome features!</p></li><li><p>but API is not powerful enough</p></li></ul></div>
+<div class="fragment current-visible">
+<div class="quoteblock"><blockquote><div class="paragraph"><p>I know, I’ll use reflection!</p></div></blockquote></div>
+<div class="ulist"><ul>
+	<li><p>nothing was safe!</p></li>
+	<li><p>bound tools to implementation details</p></li>
+	<li><p>made maintenance and evolution very hard</p></li>
+</ul></div>
+</div></section><section id="_dead_end"><h2>Dead End</h2><div class="paragraph"><p>Part of JUnit&#8217;s success it its great tool support!</p></div>
+<div class="paragraph"><p>But the same tools locked development in.</p></div>
+<div class="quoteblock"><blockquote><div class="paragraph"><p>The success of JUnit as a platform prevents the development of JUnit as a tool.<br>
+(<a href="https://jaxenter.com/crowdfunding-for-junit-lambda-is-underway-119546.html">Johannes Link</a>)</p></div></blockquote></div></section><section id="_approach_in_junit_5_2"><h2>Approach in JUnit 5</h2><div class="paragraph"><p>Separation of concerns:</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>an API to write tests against</p></li><li><p>a mechanism to discover and run tests</p></li></ol></div></section><section id="_looking_closer"><h2>Looking Closer</h2><div class="conversation">
+<p class="left">An API to write test against.</p>
+<p class="right">Ok.</p>
+<p class="left">A mechanism to discover and run tests.</p>
+<p class="right">Which tests?</p>
+<p class="left">JUnit (obviously!)</p>
+<p class="right">But which version?</p>
+<p class="left">Eh, 5?</p>
+<p class="right">Just lame old @Test-annotated?</p>
+<p class="left">Err...</p>
+<p class="right">No extension for lambdas?!</p>
+<p class="left">Ok, ok!</p>
+</div></section><section id="_approach_in_junit_5_3"><h2>Approach in JUnit 5</h2><div class="paragraph"><p>Separation of concerns V 2.0:</p></div>
+<div class="olist arabic"><ol class="arabic"><li><p>an API to write tests against</p></li><li><p>a mechanism to discover and run tests</p><div class="olist loweralpha"><ol class="loweralpha" type="a"><li><p>specific mechanism per variant of tests<br>
+(e.g. JUnit 4 or JUnit 5)</p></li><li><p>orchestration of specific mechanisms</p></li><li><p>API between them</p></li></ol></div></li></ol></div></section><section id="_junit_5_modules"><h2>JUnit 5 Modules</h2><div class="dlist"><dl><dt class="hdlist1"><code>junit5-api</code> </dt><dd><p>the API for us to write tests against</p></dd><dt class="hdlist1"><code>junit-enginge-api</code> </dt><dd><p>the API all test engines have to implement</p></dd><dt class="hdlist1"><code>junit5-engine</code> </dt><dd><p>implementation for JUnit 5 tests</p></dd><dt class="hdlist1"><code>junit-launcher</code> </dt><dd><div class="ulist"><ul><li><p>discovers test engines</p></li><li><p>orchestrates their execution</p></li><li><p>provides an API to IDEs and build tools</p></li></ul></div></dd></dl></div></section><section id="_junit_5_modules_2"><h2>JUnit 5 Modules</h2><div class="imageblock diagram" style=""><div class="content"><img src="images/junit-5-architecture-limited-lean.png" alt="junit 5 architecture limited lean" width="500"></div></div></section><section id="_architecture_2"><h2>Architecture</h2><h3>Summary</h3>
+<div class="ulist"><ul><li><p>clear separation of concerns</p></li><li><p>API for developers</p></li><li><p>API for tools</p></li></ul></div>
+<p class="fragment" data-fragment-index="0">
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
+</p>
+
+<p class="fragment" data-fragment-index="1">
+<strong>Because it opens up the platform!</strong>
+</p></section><section id="_moar_engines"><h2>Moar Engines!</h2><div class="ulist"><ul><li><p>want to run JUnit 4 tests?<br>
+⇝ create an engine for it</p></li><li><p>want TestNG to have support like JUnit?<br>
+⇝ create an engine for it</p></li><li><p>want to write tests as lambdas?<br>
+⇝ create an engine for it</p></li></ul></div></section><section id="_moar_engines_2"><h2>Moar Engines!</h2><div class="imageblock diagram" style=""><div class="content"><img src="images/junit-5-architecture-lean.png" alt="junit 5 architecture lean" width="500"></div></div></section><section id="_open_platform"><h2>Open Platform</h2><div class="paragraph"><p>Once JUnit 5 adoption sets in:</p></div>
+<div class="ulist"><ul><li><p>tools are decoupled from implementation details</p></li><li><p>tools can support all test frameworks equally well</p></li><li><p>new frameworks start with full tool support</p></li><li><p>developers can try out new things</p></li></ul></div>
+<div class="paragraph"><p>A new generation of test frameworks might arise!</p></div></section><section id="_open_platform_2"><h2>Open Platform</h2><div class="paragraph"><p>JUnit&#8217;s success as a platform<br>
+becomes <strong>available to everybody</strong>.</p></div>
+<div class="paragraph"><p>This might herald the<br>
+<strong>next generation of testing on the JVM</strong>!</p></div></section><section id="_architecture_3"><h2>Architecture</h2><h3>Summary</h3>
+<div class="ulist"><ul><li><p>clear separation of concerns:<br>
+APIs for developers, tools,<br>
+and new frameworks</p></li><li><p>opens up the platform</p></li><li><p>tool support for everybody!</p></li></ul></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: false,
