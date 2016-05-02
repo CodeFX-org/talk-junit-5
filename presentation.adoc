@@ -148,7 +148,7 @@ void failingTest() {
 ```
 
 ++++
-<p class="fragment current-visible" data-fragment-index="1">⇝ Convenient Extensibility.</p>
+<p class="fragment current-visible" data-fragment-index="0">⇝ Convenient Extensibility.</p>
 <p class="fragment current-visible" data-fragment-index="1">But how?</p>
 ++++
 
@@ -406,7 +406,7 @@ Extension model is not optimal:
 * composition can cause problems
 
 
-=== JUnit 5's Approach
+=== Approach in JUnit 5
 
 From JUnit 5's
 https://github.com/junit-team/junit5/wiki/Core-Principles[Core Principles]:
