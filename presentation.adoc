@@ -614,7 +614,193 @@ http://blog.codefx.org/design/architecture/junit-5-extension-model/[read more])
 
 ++++
 <p class="fragment current-visible">
-That's all very nice but where is the <br>
-<i>Future of Testing on the JVM</i>?
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
 </p>
 ++++
+
+
+
+// ####################### //
+// A R C H I T E C T U R E //
+// ####################### //
+
+
+[data-state="no-title"]
+== Architecture
+
+++++
+<table class="toc">
+	<tr><td class="tg-yw4l">Basics</td></tr>
+	<tr><td class="tg-yw4l">Extensions</td></tr>
+	<tr class="toc-current"><td class="tg-yw4l">Architecture</td></tr>
+	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+</table>
+++++
+
+
+=== JUnit 4 Architecture
+
+* a single JAR (ignoring Hamcrest)
+* used by
+** developers
+** extensions
+** IDEs, build-tools
+* no separation of concerns
+
+
+=== JUnit 4 Architecture
+
+* tools provide us with awesome features!
+* but API is not powerful enough
+
+++++
+<div class="fragment current-visible">
+<div class="quoteblock"><blockquote><div class="paragraph"><p>I know, I’ll use reflection!</p></div></blockquote></div>
+<div class="ulist"><ul>
+	<li><p>nothing was safe!</p></li>
+	<li><p>bound tools to implementation details</p></li>
+	<li><p>made maintenance and evolution very hard</p></li>
+</ul></div>
+</div>
+++++
+
+
+=== Dead End
+
+Part of JUnit's success it its great tool support!
+
+But the same tools locked development in.
+
+> The success of JUnit as a platform prevents the development of JUnit as a tool. +
+(https://jaxenter.com/crowdfunding-for-junit-lambda-is-underway-119546.html[Johannes Link])
+
+
+=== Approach in JUnit 5
+
+Separation of concerns:
+
+. an API to write tests against
+. a mechanism to discover and run tests
+
+
+=== Looking Closer
+
+++++
+<div class="conversation">
+<p class="left">An API to write test against.</p>
+<p class="right">Ok.</p>
+<p class="left">A mechanism to discover and run tests.</p>
+<p class="right">Which tests?</p>
+<p class="left">JUnit (obviously!)</p>
+<p class="right">But which version?</p>
+<p class="left">Eh, 5?</p>
+<p class="right">Just lame old @Test-annotated?</p>
+<p class="left">Err...</p>
+<p class="right">No extension for lambdas?!</p>
+<p class="left">Ok, ok!</p>
+</div>
+++++
+
+
+=== Approach in JUnit 5
+
+Separation of concerns V 2.0:
+
+. an API to write tests against
+. a mechanism to discover and run tests
+[loweralpha]
+.. specific mechanism per variant of tests +
+(e.g. JUnit 4 or JUnit 5)
+.. orchestration of specific mechanisms
+.. API between them
+
+
+=== JUnit 5 Modules
+
+`junit5-api` ::
+	the API for us to write tests against
+`junit-enginge-api` ::
+	the API all test engines have to implement
+`junit5-engine` ::
+	implementation for JUnit 5 tests
+`junit-launcher` ::
+* discovers test engines
+* orchestrates their execution
+* provides an API to IDEs and build tools
+
+
+=== JUnit 5 Modules
+
+image::images/junit-5-architecture-limited-lean.png[style="diagram",500]
+
+
+=== Architecture
+
+++++
+<h3>Summary</h3>
+++++
+
+* clear separation of concerns
+* API for developers
+* API for tools
+
+++++
+<p class="fragment" data-fragment-index="0">
+That's all very nice but how is it<br>
+<i>Next Generation Testing</i>?
+</p>
+
+<p class="fragment" data-fragment-index="1">
+<strong>Because it opens up the platform!</strong>
+</p>
+++++
+
+
+=== Moar Engines!
+
+* want to run JUnit 4 tests? +
+⇝ create an engine for it
+* want TestNG to have support like JUnit? +
+⇝ create an engine for it
+* want to write tests as lambdas? +
+⇝ create an engine for it
+
+
+=== Moar Engines!
+
+image::images/junit-5-architecture-lean.png[style="diagram",500]
+
+
+=== Open Platform
+
+Once JUnit 5 adoption sets in:
+
+* tools are decoupled from implementation details
+* tools can support all test frameworks equally well
+* new frameworks start with full tool support
+* developers can try out new things
+
+A new generation of test frameworks might arise!
+
+
+=== Open Platform
+
+JUnit's success as a platform +
+becomes *available to everybody*.
+
+This might herald the +
+*next generation of testing on the JVM*!
+
+
+=== Architecture
+
+++++
+<h3>Summary</h3>
+++++
+
+* clear separation of concerns: +
+APIs for developers, tools, +
+and new frameworks
+* opens up the platform
+* tool support for everybody!
