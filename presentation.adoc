@@ -935,3 +935,40 @@ junit-console
 * running with JUnit 4 is a good compromise
 
 (Read about http://blog.codefx.org/libraries/junit-5-setup/[the setup details].)
+
+
+
+// ################### //
+// Q U E S T I O N S ? //
+// ################### //
+
+
+== Next Generation Testing On The JVM
+
+* new API is an incremental improvement +
+full of thoughtful details
+* extension model looks very promising
+* architecture opens up the platform
+* tool support is not there yet
+
+(Read http://blog.codefx.org/tag/junit-5/[more about JUnit 5].)
+
+[data-background="images/question-mark.jpg"]
+=== Questions?
+
+++++
+<h3>Find Me</h3>
+++++
+http://codefx.org[codefx.org] / https://twitter.com/nipafx[@nipafx] / https://google.com/+NicolaiParlog[+NicolaiParlog]
+
+++++
+<h3>Me</h3>
+++++
+
+you can http://blog.codefx.org/hire-nicolai-parlog/[hire me]
+
+since 2014: Java developer at http://www.disy.net/en/welcome.html[Disy]
+
+2011-2014: Java developer at http://www.isi.fraunhofer.de/isi-en/index.php[Fraunhofer ISI]
+
+until 2010: CS and Math at http://www.tu-dortmund.de[TU Dortmund]
