@@ -629,8 +629,7 @@ void testLogin(MyServer server) { ... }
 * extensions compose well
 * customizable due to meta-annotations
 
-(We left out some details;
-http://blog.codefx.org/design/architecture/junit-5-extension-model/[read more])
+(We left out http://blog.codefx.org/design/architecture/junit-5-extension-model/[some details].)
 
 ++++
 <p class="fragment current-visible">
@@ -688,7 +687,7 @@ That's all very nice but how is it<br>
 
 === Dead End
 
-Part of JUnit's success it its great tool support!
+Part of JUnit's success is its great tool support!
 
 But the same tools locked development in.
 
@@ -809,7 +808,7 @@ A new generation of test frameworks might arise!
 JUnit's success as a platform +
 becomes *available to everybody*.
 
-This might herald the +
+This heralds the +
 *next generation of testing on the JVM*!
 
 
@@ -824,3 +823,5 @@ APIs for developers, tools, +
 and new frameworks
 * opens up the platform
 * tool support for everybody!
+
+(There's http://blog.codefx.org/design/architecture/junit-5-architecture/[even more] to the story.)
