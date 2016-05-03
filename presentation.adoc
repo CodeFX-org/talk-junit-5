@@ -825,3 +825,113 @@ and new frameworks
 * tool support for everybody!
 
 (There's http://blog.codefx.org/design/architecture/junit-5-architecture/[even more] to the story.)
+
+
+
+// ######################### //
+// T O O L S   &   S E T U P //
+// ######################### //
+
+
+[data-state="no-title"]
+== Tools & Setup
+
+++++
+<table class="toc">
+	<tr><td class="tg-yw4l">Basics</td></tr>
+	<tr><td class="tg-yw4l">Extensions</td></tr>
+	<tr><td class="tg-yw4l">Architecture</td></tr>
+	<tr class="toc-current"><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+</table>
+++++
+
+
+=== Writing Tests
+
+++++
+<h3>As Easy As Pie!</h3>
+++++
+
+
+Add this: +
+`org.junit` / `junit5-api` / `5.0.0-ALPHA`
+
+Have fun!
+
+
+=== Running Tests
+
+++++
+<h3>No native support, yet</h3>
+++++
+
+Maven:: nothing visible happens
+(https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206])
+Gradle:: not even an issue
+IntelliJ:: good progress, EA soon (https://youtrack.jetbrains.com/issue/IDEA-148288[#148288])
+Eclipse:: slow progress (https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566], https://github.com/junit-team/junit5/issues/217[#217])
+
+
+=== Running Tests
+
+++++
+<h3>As Part Of JUnit 4</h3>
+++++
+
+* individual classes:
++
+```java
+@RunWith(JUnit5.class)
+public class JUnit5Test { ... }
+```
+* all classes:
++
+```java
+@RunWith(JUnit5.class)
+@Packages({ "my.test.package" })
+public class JUnit5TestSuite { }
+```
+
+
+=== Running Tests
+
+++++
+<h3>With Build Tools</h3>
+++++
+
+JUnit 5 team provides rudimentary +
+Gradle plugin and Maven Surefire provider +
+(see https://junit-team.github.io/junit5/#build-support[User Guide] for details)
+
+
+=== Running Tests
+
+++++
+<h3>From Console</h3>
+++++
+
+There is a http://junit.org/junit5/docs/current/user-guide/#console-runner[console runner]:
+
+```bash
+# run all tests
+junit-console
+	-p ${path_to_compiled_test_classes}
+	-a
+# run a specific test
+junit-console
+	-p ${path_to_compiled_test_classes}
+	org.codefx.demo.junit5.HelloWorldTest
+```
+
+
+=== Tools & Setup
+
+++++
+<h3>Summary</h3>
+++++
+
+* you can start writing tests right away
+* tools have no native support yet
+* running with JUnit 4 is a good compromise
+
+(Read about http://blog.codefx.org/libraries/junit-5-setup/[the setup details].)
