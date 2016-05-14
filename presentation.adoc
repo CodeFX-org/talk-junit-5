@@ -133,7 +133,7 @@ static void beforeAll() { ... }
 void beforeEach() { ... }
 
 @AfterEach
-void adterEach() { ... }
+void afterEach() { ... }
 
 @AfterAll
 static void afterAll() { ... }
@@ -168,8 +168,8 @@ void failingTest() {
 ```
 
 ++++
-<p class="fragment current-visible" data-fragment-index="0">⇝ Convenient Extensibility.</p>
-<p class="fragment current-visible" data-fragment-index="1">But how?</p>
+<p class="fragment" data-fragment-index="0,1">⇝ Convenient Extensibility.</p>
+<p class="fragment" data-fragment-index="1">But how?</p>
 ++++
 
 === What's New?
@@ -317,7 +317,7 @@ class CountTest {
 
 === What's new?
 
-The effects of `@DisplayName`:
+The effects of `@Nested` and `@DisplayName`:
 
 image::images/testing-a-stack.png[]
 
@@ -345,7 +345,7 @@ void someTest(MyServer server) {
 
 * lifecycle works much like before
 * many details were improved
-* `@Nested` & `DisplayName` +
+* `@Nested` and `@DisplayName` +
 make a nice couple
 * parameter injection
 * no lambdas (so far)
@@ -625,7 +625,7 @@ void testLogin(MyServer server) { ... }
 <h3>Summary</h3>
 ++++
 
-* flexibility due to many points
+* flexibility because of many extension points
 * extensions compose well
 * customizable due to meta-annotations
 
@@ -853,7 +853,8 @@ and new frameworks
 ++++
 
 
-Add this: +
+Add this:
+
 `org.junit` / `junit5-api` / `5.0.0-ALPHA`
 
 Have fun!
