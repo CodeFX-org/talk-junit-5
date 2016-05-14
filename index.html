@@ -73,7 +73,7 @@ static void beforeAll() { ... }
 void beforeEach() { ... }
 
 @AfterEach
-void adterEach() { ... }
+void afterEach() { ... }
 
 @AfterAll
 static void afterAll() { ... }</code></pre></div></div>
@@ -87,8 +87,8 @@ void failingTest() {
 void failingTest() {
 	assertTrue(false);
 }</code></pre></div></div>
-<p class="fragment current-visible" data-fragment-index="0">⇝ Convenient Extensibility.</p>
-<p class="fragment current-visible" data-fragment-index="1">But how?</p></section><section id="_what_s_new_5"><h2>What&#8217;s New?</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@Test
+<p class="fragment" data-fragment-index="0,1">⇝ Convenient Extensibility.</p>
+<p class="fragment" data-fragment-index="1">But how?</p></section><section id="_what_s_new_5"><h2>What&#8217;s New?</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@Test
 void someTest() {
 	...
 	assertEquals(
@@ -160,7 +160,7 @@ class CountTest {
 		void isPositive() { ... }
 	}
 }</code></pre></div></div>
-<p class="fragment current-visible">⇝ <code>@DisplayName</code> to show a nice name</p></section><section id="_what_s_new_13"><h2>What&#8217;s new?</h2><div class="paragraph"><p>The effects of <code>@DisplayName</code>:</p></div>
+<p class="fragment current-visible">⇝ <code>@DisplayName</code> to show a nice name</p></section><section id="_what_s_new_13"><h2>What&#8217;s new?</h2><div class="paragraph"><p>The effects of <code>@Nested</code> and <code>@DisplayName</code>:</p></div>
 <div class="imageblock" style=""><div class="content"><img src="images/testing-a-stack.png" alt="testing a stack"></div></div></section><section id="_what_s_new_14"><h2>What&#8217;s new?</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@Test
 void someTest(MyServer server) {
 	// do something with `server`
@@ -169,7 +169,7 @@ void someTest(MyServer server) {
 	<p>⇝ Parameter Injection!</p>
 	<p>But where does it come from?</p>
 </div></section><section id="_what_s_new_15"><h2>What&#8217;s New?</h2><h3>Summary</h3>
-<div class="ulist"><ul><li><p>lifecycle works much like before</p></li><li><p>many details were improved</p></li><li><p><code>@Nested</code> &amp; <code>DisplayName</code><br>
+<div class="ulist"><ul><li><p>lifecycle works much like before</p></li><li><p>many details were improved</p></li><li><p><code>@Nested</code> and <code>@DisplayName</code><br>
 make a nice couple</p></li><li><p>parameter injection</p></li><li><p>no lambdas (so far)</p></li></ul></div>
 <p class="fragment current-visible">
 That's all very nice but how is it<br>
@@ -276,7 +276,7 @@ public @interface IntegrationTest { }
 @IntegrationTest
 @DisabledOnFriday
 void testLogin(MyServer server) { ... }</code></pre></div></div></section><section id="_extensions_2"><h2>Extensions</h2><h3>Summary</h3>
-<div class="ulist"><ul><li><p>flexibility due to many points</p></li><li><p>extensions compose well</p></li><li><p>customizable due to meta-annotations</p></li></ul></div>
+<div class="ulist"><ul><li><p>flexibility because of many extension points</p></li><li><p>extensions compose well</p></li><li><p>customizable due to meta-annotations</p></li></ul></div>
 <div class="paragraph"><p>(We left out <a href="http://blog.codefx.org/design/architecture/junit-5-extension-model/">some details</a>.)</p></div>
 <p class="fragment current-visible">
 That's all very nice but how is it<br>
@@ -341,8 +341,8 @@ and new frameworks</p></li><li><p>opens up the platform</p></li><li><p>tool supp
 	<tr><td class="tg-yw4l">Architecture</td></tr>
 	<tr class="toc-current"><td class="tg-yw4l">Tools &amp; Setup</td></tr>
 </table></section><section id="_writing_tests"><h2>Writing Tests</h2><h3>As Easy As Pie!</h3>
-<div class="paragraph"><p>Add this:<br>
-<code>org.junit</code> / <code>junit5-api</code> / <code>5.0.0-ALPHA</code></p></div>
+<div class="paragraph"><p>Add this:</p></div>
+<div class="paragraph"><p><code>org.junit</code> / <code>junit5-api</code> / <code>5.0.0-ALPHA</code></p></div>
 <div class="paragraph"><p>Have fun!</p></div></section><section id="_running_tests"><h2>Running Tests</h2><h3>No native support, yet</h3>
 <div class="dlist"><dl><dt class="hdlist1">Maven</dt><dd><p>nothing visible happens
 (<a href="https://issues.apache.org/jira/browse/SUREFIRE-1206">#1206</a>)</p></dd><dt class="hdlist1">Gradle</dt><dd><p>not even an issue</p></dd><dt class="hdlist1">IntelliJ</dt><dd><p>good progress, EA soon (<a href="https://youtrack.jetbrains.com/issue/IDEA-148288">#148288</a>)</p></dd><dt class="hdlist1">Eclipse</dt><dd><p>slow progress (<a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566">#488566</a>, <a href="https://github.com/junit-team/junit5/issues/217">#217</a>)</p></dd></dl></div></section><section id="_running_tests_2"><h2>Running Tests</h2><h3>As Part Of JUnit 4</h3>
@@ -371,7 +371,14 @@ full of thoughtful details</p></li><li><p>extension model looks very promising</
 <div class="paragraph"><p>you can <a href="http://blog.codefx.org/hire-nicolai-parlog/">hire me</a></p></div>
 <div class="paragraph"><p>since 2014: Java developer at <a href="http://www.disy.net/en/welcome.html">Disy</a></p></div>
 <div class="paragraph"><p>2011-2014: Java developer at <a href="http://www.isi.fraunhofer.de/isi-en/index.php">Fraunhofer ISI</a></p></div>
-<div class="paragraph"><p>until 2010: CS and Math at <a href="http://www.tu-dortmund.de">TU Dortmund</a></p></div></section></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
+<div class="paragraph"><p>until 2010: CS and Math at <a href="http://www.tu-dortmund.de">TU Dortmund</a></p></div></section></section>
+<section id="_image_credits"><h2>Image Credits</h2><div class="ulist"><ul><li><p>bubbles:
+<a href="https://www.flickr.com/photos/elwillo/">Keith Williamson</a>
+(<a href="https://creativecommons.org/licenses/by/2.0/">CC-BY 2.0</a>)</p></li><li><p>architecture diagrams:<br>
+<a href="http://blog.codefx.org/about-nicolai-parlog/">Nicolai Parlog</a>
+(<a href="https://creativecommons.org/licenses/by-nc/4.0/">CC-BY-NC 4.0</a>)</p></li><li><p>question-mark:
+<a href="http://milosevicmilos.com/">Milos Milosevic</a>
+(<a href="https://creativecommons.org/licenses/by/2.0/">CC-BY 2.0</a>)</p></li></ul></div></section></div></div><script src="reveal.js/lib/js/head.min.js"></script><script src="reveal.js/js/reveal.js"></script><script type="text/javascript">// See https://github.com/hakimel/reveal.js#configuration for a full list of configuration options
 Reveal.initialize({
   // Display controls in the bottom right corner
   controls: false,
