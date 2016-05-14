@@ -973,3 +973,16 @@ since 2014: Java developer at http://www.disy.net/en/welcome.html[Disy]
 2011-2014: Java developer at http://www.isi.fraunhofer.de/isi-en/index.php[Fraunhofer ISI]
 
 until 2010: CS and Math at http://www.tu-dortmund.de[TU Dortmund]
+
+
+== Image Credits
+
+* bubbles:
+https://www.flickr.com/photos/elwillo/[Keith Williamson]
+(https://creativecommons.org/licenses/by/2.0/[CC-BY 2.0])
+* architecture diagrams: +
+http://blog.codefx.org/about-nicolai-parlog/[Nicolai Parlog]
+(https://creativecommons.org/licenses/by-nc/4.0/[CC-BY-NC 4.0])
+* question-mark:
+http://milosevicmilos.com/[Milos Milosevic]
+(https://creativecommons.org/licenses/by/2.0/[CC-BY 2.0])
