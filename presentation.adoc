@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-jeeconf.png" class="logo">
+		<img src="images/logo-devoxx.png" class="logo">
 		<div class="name">
-			<p><a href="http://jeeconf.com/">JEEConf</a></p>
-			<p><a href="https://twitter.com/jeeconf" title="JEEConf on Twitter">@jeeconf</a></p>
+			<p><a href="http://devoxx.pl/">Devoxx PL</a></p>
+			<p><a href="https://twitter.com/devoxxpl" title="Devoxx PL on Twitter">@devoxxpl</a></p>
 		</div>
 	</div>
 </div>
@@ -53,10 +53,10 @@
 		</div>
 	</p></div>
 	<div class="participant">
-		<img src="images/logo-jeeconf.png" class="logo">
+		<img src="images/logo-devoxx.png" class="logo">
 		<div class="name"><p>
-			<a href="http://jeeconf.com/">JEEConf</a>
-				/ <a href="https://twitter.com/jeeconf" title="JEEConf on Twitter">@jeeconf</a>
+			<a href="http://devoxx.pl/">Devoxx PL</a>
+				/ <a href="https://twitter.com/devoxxpl" title="Devoxx PL on Twitter">@devoxxpl</a>
 		</p></div>
 	</div>
 </footer>
