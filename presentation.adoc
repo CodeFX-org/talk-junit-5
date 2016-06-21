@@ -247,15 +247,15 @@ org.opentest4j.MultipleFailuresError:
 === What's New?
 
 ```java
-void throwing() {
-	throws new IllegalStateException();
+void methodUnderTest() {
+	throw new IllegalStateException();
 }
 
 @Test
 void assertExceptions() {
 	assertThrows(
 		Exception.class,
-		this::throwing);
+		this::methodUnderTest);
 }
 ```
 
@@ -271,7 +271,7 @@ void assertExceptions() {
 void assertExceptions() {
 	Exception ex = expectThrows(
 		Exception.class,
-		this::throwing);
+		this::methodUnderTest);
 	assertEquals("Msg", ex.getMessage());
 }
 ```
