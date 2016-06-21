@@ -99,10 +99,10 @@ Give feedback!
 
 ++++
 <table class="toc">
-	<tr class="toc-current"><td class="tg-yw4l">Basics</td></tr>
-	<tr><td class="tg-yw4l">Extensions</td></tr>
-	<tr><td class="tg-yw4l">Architecture</td></tr>
-	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+	<tr class="toc-current"><td>Basics</td></tr>
+	<tr><td>Extensions</td></tr>
+	<tr><td>Architecture</td></tr>
+	<tr><td>Tools &amp; Setup</td></tr>
 </table>
 ++++
 
@@ -369,10 +369,10 @@ That's all very nice but how is it<br>
 
 ++++
 <table class="toc">
-	<tr><td class="tg-yw4l">Basics</td></tr>
-	<tr class="toc-current"><td class="tg-yw4l">Extensions</td></tr>
-	<tr><td class="tg-yw4l">Architecture</td></tr>
-	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+	<tr><td>Basics</td></tr>
+	<tr class="toc-current"><td>Extensions</td></tr>
+	<tr><td>Architecture</td></tr>
+	<tr><td>Tools &amp; Setup</td></tr>
 </table>
 ++++
 
@@ -650,10 +650,10 @@ That's all very nice but how is it<br>
 
 ++++
 <table class="toc">
-	<tr><td class="tg-yw4l">Basics</td></tr>
-	<tr><td class="tg-yw4l">Extensions</td></tr>
-	<tr class="toc-current"><td class="tg-yw4l">Architecture</td></tr>
-	<tr><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+	<tr><td>Basics</td></tr>
+	<tr><td>Extensions</td></tr>
+	<tr class="toc-current"><td>Architecture</td></tr>
+	<tr><td>Tools &amp; Setup</td></tr>
 </table>
 ++++
 
@@ -838,10 +838,10 @@ and new frameworks
 
 ++++
 <table class="toc">
-	<tr><td class="tg-yw4l">Basics</td></tr>
-	<tr><td class="tg-yw4l">Extensions</td></tr>
-	<tr><td class="tg-yw4l">Architecture</td></tr>
-	<tr class="toc-current"><td class="tg-yw4l">Tools &amp; Setup</td></tr>
+	<tr><td>Basics</td></tr>
+	<tr><td>Extensions</td></tr>
+	<tr><td>Architecture</td></tr>
+	<tr class="toc-current"><td>Tools &amp; Setup</td></tr>
 </table>
 ++++
 
