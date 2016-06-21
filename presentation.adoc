@@ -50,8 +50,8 @@
 			Nicolai Parlog
 			/ <a href="http://codefx.org">codefx.org</a>
 			/ <a href="https://twitter.com/nipafx" title="Nicolai on Twitter">@nipafx</a>
-		</div>
-	</p></div>
+		</p></div>
+	</div>
 	<div class="participant">
 		<img src="images/logo-devoxx.png" class="logo">
 		<div class="name"><p>
