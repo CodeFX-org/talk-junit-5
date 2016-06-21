@@ -77,16 +77,21 @@
 
 JUnit 5 is work in progress!
 
-This is based on the alpha version +
+This is based on the *alpha version* +
 (released in February 2016).
 
-Some Links: +
-https://github.com/junit-team/junit5[source] /
-http://junit.org/junit5/docs/current/user-guide[user guide] /
-https://twitter.com/junitteam[@junitteam] +
-http://blog.codefx.org/tag/junit-5/[articles on my blog]
+*Milestone 1* should be released +
+any day now.
 
-Give feedback!
+Give *feedback*!
+
+=== Some Links:
+
+* https://github.com/junit-team/junit5[GitHub repository]
+* http://junit.org/junit5/docs/current/user-guide[user guide]
+* https://twitter.com/junitteam[@junitteam] on Twitter
+* http://blog.codefx.org/tag/junit-5/[articles on my blog]
+* https://twitter.com/nipafx[@nipafx], me on Twitter
 
 
 // ########### //
