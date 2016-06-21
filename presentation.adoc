@@ -73,6 +73,7 @@
 // H E A D S   U P //
 // ############### //
 
+
 == Heads Up
 
 JUnit 5 is work in progress!
@@ -85,13 +86,15 @@ any day now.
 
 Give *feedback*!
 
+
 === Some Links:
 
 * https://github.com/junit-team/junit5[GitHub repository]
-* http://junit.org/junit5/docs/current/user-guide[user guide]
+* http://junit.org/junit5/docs/snapshot/user-guide[user guide]
 * https://twitter.com/junitteam[@junitteam] on Twitter
-* http://blog.codefx.org/tag/junit-5/[articles on my blog]
+* http://blog.codefx.org/tag/junit-5/[JUnit 5 articles] on my blog
 * https://twitter.com/nipafx[@nipafx], me on Twitter
+
 
 
 // ########### //
@@ -112,6 +115,7 @@ Give *feedback*!
 </table>
 ++++
 
+
 === What's New?
 
 ```java
@@ -128,6 +132,7 @@ class JUnit5Test {
 ++++
 <p class="fragment current-visible">⇝ Package visibility suffices!</p>
 ++++
+
 
 === What's New?
 
@@ -149,6 +154,7 @@ static void afterAll() { ... }
 <p class="fragment current-visible">⇝ Lifecycle annotations have new names.</p>
 ++++
 
+
 === What's New?
 
 ```java
@@ -162,6 +168,7 @@ void failingTest() {
 ++++
 <p class="fragment current-visible">⇝ <code>@Ignored</code> is now <code>@Disabled</code>.</p>
 ++++
+
 
 === What's New?
 
@@ -177,6 +184,7 @@ void failingTest() {
 <p class="fragment" data-fragment-index="0,1">⇝ Convenient Extensibility.</p>
 <p class="fragment" data-fragment-index="1">But how?</p>
 ++++
+
 
 === What's New?
 
@@ -195,6 +203,7 @@ void someTest() {
 <p class="fragment current-visible">⇝ Failure message comes last.</p>
 ++++
 
+
 === What's New?
 
 ```java
@@ -211,6 +220,7 @@ void someTest() {
 ++++
 <p class="fragment current-visible">⇝ Failure message can be created lazily.</p>
 ++++
+
 
 === What's New?
 
@@ -231,6 +241,7 @@ void assertAllProperties() {
 ++++
 <p class="fragment current-visible">⇝ <code>assertAll</code> gathers results from multiple assertions</p>
 ++++
+
 
 === What's New?
 
@@ -265,6 +276,7 @@ void assertExceptions() {
 	an exception of a specific type was thrown</p>
 ++++
 
+
 === What's New?
 
 ```java
@@ -281,6 +293,7 @@ void assertExceptions() {
 <p class="fragment current-visible">⇝ <code>expectThrows</code> is like <code>assertThrows</code><br>
 	but also returns the exception for further examination</p>
 ++++
+
 
 === What's New?
 
@@ -302,6 +315,7 @@ class CountTest {
 <p class="fragment current-visible">⇝ <code>@Nested</code> to organize tests in inner classes</p>
 ++++
 
+
 === What's New?
 
 ```java
@@ -321,11 +335,13 @@ class CountTest {
 <p class="fragment current-visible">⇝ <code>@DisplayName</code> to show a nice name</p>
 ++++
 
+
 === What's new?
 
 The effects of `@Nested` and `@DisplayName`:
 
-image::images/testing-a-stack.png[]
+image::images/testing-a-stack.png[Nested and DisplayName, 900]
+
 
 === What's new?
 
@@ -338,10 +354,11 @@ void someTest(MyServer server) {
 
 ++++
 <div class="fragment current-visible">
-	<p>⇝ Parameter Injection!</p>
-	<p>But where does it come from?</p>
+	<p>⇝ Test has parameters!</p>
+	<p>But where do they come from?</p>
 </div>
 ++++
+
 
 === What's New?
 
@@ -393,7 +410,7 @@ Up to now tests were identified
 * by annotations +
 (`@Test` in JUnit 4 and 5)
 
-~> Tests had to be known at compile time.
+⇝ Tests had to be known at compile time.
 
 
 === Defining Tests
@@ -403,14 +420,10 @@ Up to now tests were identified
 What if we want to create tests
 
 * with lambdas
-+
-```java
-name -> { /* test */ }
-```
 * for a set of parameters
 * based on non-source files
 
-~> We need to define tests at run time.
+⇝ We need to define tests at run time.
 
 
 === Dynamic Tests To The Rescue!
@@ -424,36 +437,60 @@ are annotated with `@TestFactory`
 (This is not part of the alpha version.)
 
 
-=== `DynamicTest`
+=== `DynamicTest` & `@TestFactory`
 
-A `DynamicTest` has
-
-* a name
-* an `Executable`
-
-Simple wrapper around a test.
-
-
-=== `@TestFactory`
-
-Annotates methods that return an
-
-* `Iterator`
-* `Iterable`
-* `Collection`
-* `Stream`
-
-of `DynamicTest`-s.
+* `DynamicTest` is a simple wrapper; it has
+** a name
+** an `Executable`
+* `@TestFactory`
+** annotates methods
+** methods must return `DynamicTest`-s
 
 
 === Creating Tests
+
+```java
+@TestFactory
+List<DynamicTest> createPointTests() {
+	return Arrays.asList(
+		dynamicTest(
+			"Point Test #1",
+			() -> { /* test code */ } ),
+		dynamicTest(
+			"Point Test #2",
+			() -> { /* test code */ } )
+	);
+}
+```
+
+
+=== Implementation
 
 The rest is straight-forward:
 
 . JUnit detects `@TestFactory` methods
 . calls them to generate tests
 . adds tests to the test tree
-. eventually runs tests
+. eventually runs them
+
+
+=== Lambda Tests
+
+So what about lambdas?
+
+This would be great:
+
+```java
+class PointTest {
+
+	pointTest_Nr1 -> {
+		/* test code */
+	}
+
+}
+```
+
+But how?
 
 
 === Lambda Tests
@@ -495,7 +532,7 @@ While we're hacking... what about this?
 ```java
 class PointTest extends LambdaTest {{
 
-	__(pointTestNr1 -> {
+	__(pointTest_Nr1 -> {
 		/* test code goes here */
 	});
 
@@ -697,12 +734,12 @@ to implement its feature
 We want to benchmark our tests!
 
 * for each test method
-* write the runtime to console
+* write the elapsed time to console
 
 How?
 
 * store test launch time _before each_ test
-* compute runtime and print _after each_ test
+* compute elapsed time and print _after each_ test
 
 
 === Benchmark Extension
@@ -927,6 +964,7 @@ Separation of concerns:
 . a mechanism to discover and run tests
 
 
+////
 === Looking Closer
 
 ++++
@@ -944,6 +982,7 @@ Separation of concerns:
 <p class="left">Ok, ok!</p>
 </div>
 ++++
+////
 
 
 === Approach in JUnit 5
@@ -961,6 +1000,11 @@ Separation of concerns V 2.0:
 
 === JUnit 5 Modules
 
+image::images/junit-5-architecture-limited-lean.png[style="diagram",500]
+
+
+=== JUnit 5 Modules
+
 `junit5-api` ::
 	the API for us to write tests against
 `junit-enginge-api` ::
@@ -971,11 +1015,6 @@ Separation of concerns V 2.0:
 * discovers test engines
 * orchestrates their execution
 * provides an API to IDEs and build tools
-
-
-=== JUnit 5 Modules
-
-image::images/junit-5-architecture-limited-lean.png[style="diagram",500]
 
 
 === Architecture
@@ -1006,7 +1045,7 @@ That's all very nice but how is it<br>
 ⇝ create an engine for it
 * want TestNG to have support like JUnit? +
 ⇝ create an engine for it
-* want to write tests as lambdas? +
+* want to write tests in natural language? +
 ⇝ create an engine for it
 
 
@@ -1020,7 +1059,7 @@ image::images/junit-5-architecture-lean.png[style="diagram",500]
 Once JUnit 5 adoption sets in:
 
 * tools are decoupled from implementation details
-* tools can support all test frameworks equally well
+* tools can support all frameworks (almost) equally well
 * new frameworks start with full tool support
 * developers can try out new things
 
@@ -1127,7 +1166,7 @@ public class JUnit5TestSuite { }
 
 JUnit 5 team provides rudimentary +
 Gradle plugin and Maven Surefire provider +
-(see https://junit-team.github.io/junit5/#build-support[User Guide] for details)
+(see http://junit.org/junit5/docs/snapshot/user-guide/#build-support[user guide] for details)
 
 
 === Running Tests
@@ -1136,7 +1175,7 @@ Gradle plugin and Maven Surefire provider +
 <h3>From Console</h3>
 ++++
 
-There is a http://junit.org/junit5/docs/current/user-guide/#console-runner[console runner]:
+There is a http://junit.org/junit5/docs/snapshot/user-guide/#running-tests-console-runner[console runner]:
 
 ```bash
 # run all tests
@@ -1173,6 +1212,7 @@ junit-console
 
 * new API is an incremental improvement +
 full of thoughtful details
+* dynamic tests are very useful
 * extension model looks very promising
 * architecture opens up the platform
 * tool support is not there yet
@@ -1182,18 +1222,17 @@ full of thoughtful details
 [data-background="images/question-mark.jpg"]
 === Questions?
 
-++++
-<h3>Find Me</h3>
-++++
++++<h3>Find Me</h3>+++
+
 http://codefx.org[codefx.org] / https://twitter.com/nipafx[@nipafx] / https://google.com/+NicolaiParlog[+NicolaiParlog]
 
-++++
-<h3>Me</h3>
-++++
++++<h3>Me</h3>+++
 
 you can http://blog.codefx.org/hire-nicolai-parlog/[hire me]
 
-since 2014: Java developer at http://www.disy.net/en/welcome.html[Disy]
+since 2016: Java channel editor at http://sitepoint.com[SitePoint]
+
+2014-2016: Java developer at http://www.disy.net/en/welcome.html[Disy]
 
 2011-2014: Java developer at http://www.isi.fraunhofer.de/isi-en/index.php[Fraunhofer ISI]
 
