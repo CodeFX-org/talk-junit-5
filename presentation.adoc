@@ -105,6 +105,7 @@ Give *feedback*!
 ++++
 <table class="toc">
 	<tr class="toc-current"><td>Basics</td></tr>
+	<tr><td>Dynamic Tests</td></tr>
 	<tr><td>Extensions</td></tr>
 	<tr><td>Architecture</td></tr>
 	<tr><td>Tools &amp; Setup</td></tr>
@@ -364,6 +365,26 @@ That's all very nice but how is it<br>
 
 
 
+// ######################### //
+// D Y N A M I C   T E S T S //
+// ######################### //
+
+
+[data-state="no-title"]
+== Dynamic Tests
+
+++++
+<table class="toc">
+	<tr><td>Basics</td></tr>
+	<tr class="toc-current"><td>Dynamic Tests</td></tr>
+	<tr><td>Extensions</td></tr>
+	<tr><td>Architecture</td></tr>
+	<tr><td>Tools &amp; Setup</td></tr>
+</table>
+++++
+
+
+
 // ################### //
 // E X T E N S I O N S //
 // ################### //
@@ -375,6 +396,7 @@ That's all very nice but how is it<br>
 ++++
 <table class="toc">
 	<tr><td>Basics</td></tr>
+	<tr><td>Dynamic Tests</td></tr>
 	<tr class="toc-current"><td>Extensions</td></tr>
 	<tr><td>Architecture</td></tr>
 	<tr><td>Tools &amp; Setup</td></tr>
@@ -656,6 +678,7 @@ That's all very nice but how is it<br>
 ++++
 <table class="toc">
 	<tr><td>Basics</td></tr>
+	<tr><td>Dynamic Tests</td></tr>
 	<tr><td>Extensions</td></tr>
 	<tr class="toc-current"><td>Architecture</td></tr>
 	<tr><td>Tools &amp; Setup</td></tr>
@@ -844,6 +867,7 @@ and new frameworks
 ++++
 <table class="toc">
 	<tr><td>Basics</td></tr>
+	<tr><td>Dynamic Tests</td></tr>
 	<tr><td>Extensions</td></tr>
 	<tr><td>Architecture</td></tr>
 	<tr class="toc-current"><td>Tools &amp; Setup</td></tr>
