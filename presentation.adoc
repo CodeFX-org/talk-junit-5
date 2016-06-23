@@ -87,13 +87,15 @@ any day now.
 Give *feedback*!
 
 
-=== Some Links:
+=== JUnit 5 Links:
 
 * https://github.com/junit-team/junit5[GitHub repository]
 * http://junit.org/junit5/docs/snapshot/user-guide[user guide]
 * https://twitter.com/junitteam[@junitteam] on Twitter
-* http://blog.codefx.org/tag/junit-5/[JUnit 5 articles] on my blog
-* https://twitter.com/nipafx[@nipafx], me on Twitter
+
+Also:
+
+* http://blog.codefx.org/tag/junit-5/[articles] on my blog
 
 
 
