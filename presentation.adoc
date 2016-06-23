@@ -695,7 +695,8 @@ https://github.com/junit-team/junit5/wiki/Core-Principles[Core Principles]:
 
 > Prefer extension points over features
 
-Quite literally JUnit 5 has _Extension Points_
+Quite literally, +
+JUnit 5 has _Extension Points_
 
 
 === Extension Points
@@ -860,7 +861,8 @@ https://en.wikibooks.org/wiki/Java_Programming/Annotations/Meta-Annotations[Meta
 
 * JUnit 5's annotations are meta-annotations
 * JUnit 5 checks recursively for annotations
-* ⇝ we can create our own annotations!
+
+⇝ We can create our own annotations!
 
 
 === Creating Annotations
