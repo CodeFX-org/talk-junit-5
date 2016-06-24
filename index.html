@@ -188,14 +188,14 @@ That's all very nice but how is it<br>
 <div class="paragraph"><p>⇝ We need to define tests at run time.</p></div></section><section id="_dynamic_tests_to_the_rescue"><h2>Dynamic Tests To The Rescue!</h2><div class="paragraph"><p>Allow creation of tests at run time.</p></div>
 <div class="ulist"><ul><li><p>tests are wrapped into <code>DynamicTest</code>-s</p></li><li><p>methods that create them<br>
 are annotated with <code>@TestFactory</code></p></li></ul></div>
-<div class="paragraph"><p>(This is not part of the alpha version.)</p></div></section><section id="__code_dynamictest_code_code_testfactory_code"><h2><code>DynamicTest</code> &amp; <code>@TestFactory</code></h2><div class="ulist"><ul><li><p><code>DynamicTest</code> is a simple wrapper; it has</p><div class="ulist"><ul><li><p>a name</p></li><li><p>an <code>Executable</code></p></li></ul></div></li><li><p><code>@TestFactory</code></p><div class="ulist"><ul><li><p>annotates methods</p></li><li><p>methods must return <code>DynamicTest</code>-s</p></li></ul></div></li></ul></div></section><section id="_creating_tests"><h2>Creating Tests</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@TestFactory
+<div class="paragraph"><p>(This is not part of the alpha version.)</p></div></section><section id="_creating_tests"><h2>Creating Tests</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">@TestFactory
 List&lt;DynamicTest&gt; createPointTests() {
 	return Arrays.asList(
 		dynamicTest(
-			"Point Test #1",
+			"A Great Test For Point",
 			() -&gt; { /* test code */ } ),
 		dynamicTest(
-			"Point Test #2",
+			"Another Great Test For Point",
 			() -&gt; { /* test code */ } )
 	);
 }</code></pre></div></div></section><section id="_implementation"><h2>Implementation</h2><div class="paragraph"><p>The rest is straight-forward:</p></div>
@@ -203,14 +203,14 @@ List&lt;DynamicTest&gt; createPointTests() {
 <div class="paragraph"><p>This would be great:</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">class PointTest {
 
-	pointTest_Nr1 -&gt; {
+	a_great_test_for_point -&gt; {
 		/* test code */
 	}
 
 }</code></pre></div></div>
 <div class="paragraph"><p>But how?</p></div></section><section id="_lambda_tests_2"><h2>Lambda Tests</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">public class LambdaTest {
-	private List&lt;DynamicTest&gt; tests
-		= new ArrayList();
+
+	private List&lt;DynamicTest&gt; tests = /*...*/;
 
 	protected void __(
 			String name, Executable test) {
@@ -222,14 +222,14 @@ List&lt;DynamicTest&gt; createPointTests() {
 	}
 }</code></pre></div></div></section><section id="_lambda_tests_3"><h2>Lambda Tests</h2><div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">class PointTest extends LambdaTest {{
 
-	__("Point Test #1", () -&gt; {
+	__("A Great Test For Point", () -&gt; {
 		/* test code goes here */
 	});
 
 }}</code></pre></div></div></section><section id="_lambda_tests_4"><h2>Lambda Tests</h2><div class="paragraph"><p>While we&#8217;re hacking&#8230;&#8203; what about this?</p></div>
 <div class="listingblock"><div class="content"><pre class="highlight"><code class="java language-java">class PointTest extends LambdaTest {{
 
-	__(pointTest_Nr1 -&gt; {
+	__(a_great_test_for_point -&gt; {
 		/* test code goes here */
 	});
 
