@@ -439,6 +439,7 @@ are annotated with `@TestFactory`
 (This is not part of the alpha version.)
 
 
+////
 === `DynamicTest` & `@TestFactory`
 
 * `DynamicTest` is a simple wrapper; it has
@@ -447,6 +448,7 @@ are annotated with `@TestFactory`
 * `@TestFactory`
 ** annotates methods
 ** methods must return `DynamicTest`-s
+////
 
 
 === Creating Tests
