@@ -458,10 +458,10 @@ are annotated with `@TestFactory`
 List<DynamicTest> createPointTests() {
 	return Arrays.asList(
 		dynamicTest(
-			"Point Test #1",
+			"A Great Test For Point",
 			() -> { /* test code */ } ),
 		dynamicTest(
-			"Point Test #2",
+			"Another Great Test For Point",
 			() -> { /* test code */ } )
 	);
 }
@@ -487,7 +487,7 @@ This would be great:
 ```java
 class PointTest {
 
-	pointTest_Nr1 -> {
+	a_great_test_for_point -> {
 		/* test code */
 	}
 
@@ -501,8 +501,8 @@ But how?
 
 ```java
 public class LambdaTest {
-	private List<DynamicTest> tests
-		= new ArrayList();
+
+	private List<DynamicTest> tests = /*...*/;
 
 	protected void __(
 			String name, Executable test) {
@@ -521,7 +521,7 @@ public class LambdaTest {
 ```java
 class PointTest extends LambdaTest {{
 
-	__("Point Test #1", () -> {
+	__("A Great Test For Point", () -> {
 		/* test code goes here */
 	});
 
@@ -536,7 +536,7 @@ While we're hacking... what about this?
 ```java
 class PointTest extends LambdaTest {{
 
-	__(pointTest_Nr1 -> {
+	__(a_great_test_for_point -> {
 		/* test code goes here */
 	});
 
