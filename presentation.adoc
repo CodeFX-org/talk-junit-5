@@ -613,6 +613,8 @@ we can create tests at run time
 ** for sets of parameters
 ** based on external input
 
+[[TODO, how does it relate to lifecycle methods]]
+
 ++++
 <p class="fragment current-visible">
 That's all very nice but is this already<br>
