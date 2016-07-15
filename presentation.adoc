@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-devoxx.png" class="logo">
+		<img src="images/logo-vjug.jpg" class="logo">
 		<div class="name">
-			<p><a href="http://devoxx.pl/">Devoxx PL</a></p>
-			<p><a href="https://twitter.com/devoxxpl" title="Devoxx PL on Twitter">@devoxxpl</a></p>
+			<p><a href="http://www.meetup.com/virtualJUG/">Virtual JUG</a></p>
+			<p><a href="https://twitter.com/virtualJUG" title="vJUG on Twitter">@virtualJUG</a></p>
 		</div>
 	</div>
 </div>
@@ -53,10 +53,10 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-devoxx.png" class="logo">
+		<img src="images/logo-vjug.jpg" class="logo">
 		<div class="name"><p>
-			<a href="http://devoxx.pl/">Devoxx PL</a>
-				/ <a href="https://twitter.com/devoxxpl" title="Devoxx PL on Twitter">@devoxxpl</a>
+			<a href="http://www.meetup.com/virtualJUG/">Virtual JUG</a>
+				/ <a href="https://twitter.com/virtualJUG" title="Virtual JUG on Twitter">@virtualJUG</a>
 		</p></div>
 	</div>
 </footer>
