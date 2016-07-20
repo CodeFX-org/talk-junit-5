@@ -1128,7 +1128,7 @@ public class JUnit5Test { ... }
 +
 ```java
 @RunWith(JUnit5.class)
-@Packages({ "my.test.package" })
+@SelectPackages({ "my.test.package" })
 public class JUnit5TestSuite { }
 ```
 
