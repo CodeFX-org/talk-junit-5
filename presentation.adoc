@@ -1107,11 +1107,16 @@ Have fun!
 <h3>Not much native support, yet</h3>
 ++++
 
-Maven:: nothing visible happens
-(https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206])
+Maven:: discussions
+(https://github.com/junit-team/junit5/issues/31[#31],
+ https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206],
+ http://markmail.org/message/nx6qzkarj7r6eyf5#query:+page:1+mid:nx6qzkarj7r6eyf5+state:results[mails])
 Gradle:: not even an issue
-IntelliJ:: EA support in https://www.jetbrains.com/idea/whatsnew/?landing::[2016.2]
-Eclipse:: slow progress (https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566], https://github.com/junit-team/junit5/issues/217[#217])
+// search for all iussues with "JUnit" in them, ordered by "updated":
+// https://issues.gradle.org/issues/?jql=text%20~%20junit%20ORDER%20BY%20updated%20DESC
+IntelliJ:: EA support in https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]
+Eclipse:: slow progress
+(https://github.com/junit-team/junit5/issues/217[#217], https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566])
 
 
 === Running Tests
@@ -1152,7 +1157,7 @@ Gradle plugin and Maven Surefire provider +
 <h3>From Console</h3>
 ++++
 
-There is a http://junit.org/junit5/docs/snapshot/user-guide/#running-tests-console-runner[console launcher]:
+There is a http://junit.org/junit5/docs/snapshot/user-guide/#running-tests-console-launcher[console launcher]:
 
 ```bash
 # run all tests
