@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-vjug.jpg" class="logo">
+		<img src="images/logo-javazone.png" class="logo">
 		<div class="name">
-			<p><a href="http://www.meetup.com/virtualJUG/">Virtual JUG</a></p>
-			<p><a href="https://twitter.com/virtualJUG" title="vJUG on Twitter">@virtualJUG</a></p>
+			<p><a href="https://2016.javazone.no/">JavaZone</a></p>
+			<p><a href="https://twitter.com/javazone" title="JavaZone on Twitter">@JavaZone</a></p>
 		</div>
 	</div>
 </div>
@@ -53,10 +53,10 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-vjug.jpg" class="logo">
+		<img src="images/logo-javazone.png" class="logo">
 		<div class="name"><p>
-			<a href="http://www.meetup.com/virtualJUG/">Virtual JUG</a>
-				/ <a href="https://twitter.com/virtualJUG" title="Virtual JUG on Twitter">@virtualJUG</a>
+			<a href="https://2016.javazone.no/">JavaZone</a>
+				/ <a href="https://twitter.com/javazone" title="Virtual JUG on Twitter">@JavaZone</a>
 		</p></div>
 	</div>
 </footer>
