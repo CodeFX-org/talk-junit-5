@@ -788,10 +788,10 @@ Let's see how it works!
 public class DisabledOnFridayCondition
 		implements TestExecutionCondition {
 	@Override
-	public ConditionEvaluationResult evaluate(
-			TestExtensionContext context) {
+	public ConditionEval.Result evaluate(
+			TestExtensionCtx. context) {
 		if (isFriday())
-			return disabled("Happy Weekend!");
+			return disabled("Weekend!");
 		else
 			return enabled("Fix it!");
 	}
@@ -818,9 +818,9 @@ public class MyServerParameterResolver
 		implements ParameterResolver {
 	@Override
 	public boolean supports(
-			ParameterContext param, ...) {
+			ParameterContext p, ...) {
 		return MyServer.class
-			== param.getParameter().getType();
+			== p.getParameter().getType();
 	}
 	@Override
 	public Object resolve( ... ) {
@@ -1123,13 +1123,13 @@ Eclipse:: slow progress (https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#4
 * individual classes:
 +
 ```java
-@RunWith(JUnit5.class)
+@RunWith(JUnitPlatform.class)
 public class JUnit5Test { ... }
 ```
 * all classes:
 +
 ```java
-@RunWith(JUnit5.class)
+@RunWith(JUnitPlatform.class)
 @SelectPackages({ "my.test.package" })
 public class JUnit5TestSuite { }
 ```
