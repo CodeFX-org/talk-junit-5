@@ -246,7 +246,7 @@ void assertAllProperties() {
 
 Output if `assertAll` fails:
 
-```bash
+```shell
 org.opentest4j.MultipleFailuresError:
 	address (3 failures)
 	expected: <C> but was: <City>
@@ -565,6 +565,7 @@ class PointTest extends LambdaTest {{
 * the inner braces create
  an https://reinhard.codes/2016/07/30/double-brace-initialisation-and-java-initialisation-blocks/[initialization block]
 * code therein is run during construction
+* JUnit will pick up the tests by calling `tests()`
 
 
 === Lambda Tests
@@ -1212,7 +1213,7 @@ http://codefx.org[codefx.org] / https://twitter.com/nipafx[@nipafx] / https://go
 
 you can http://blog.codefx.org/hire-nicolai-parlog/[hire me]
 
-since 2016: Java channel editor at http://sitepoint.com[SitePoint]
+since 2016: editor of http://sitepoint.com/java[SitePoint's Java channel]
 
 2014-2016: Java developer at http://www.disy.net/en/welcome.html[Disy]
 
