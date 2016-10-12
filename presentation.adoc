@@ -1108,16 +1108,19 @@ Have fun!
 <h3>Not much native support, yet</h3>
 ++++
 
-Maven:: discussions
+* *Maven*: discussions
 (https://github.com/junit-team/junit5/issues/31[#31],
  https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206],
  http://markmail.org/message/nx6qzkarj7r6eyf5#query:+page:1+mid:nx6qzkarj7r6eyf5+state:results[mails])
-Gradle:: not even an issue
-// search for all iussues with "JUnit" in them, ordered by "updated":
+// search for all issues with "JUnit" in them, ordered by "updated":
 // https://issues.gradle.org/issues/?jql=text%20~%20junit%20ORDER%20BY%20updated%20DESC
-IntelliJ:: EA support in https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]
-Eclipse:: slow progress
+* *Gradle*: not even an issue
+* *IntelliJ*: EA support in https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]
+* *Eclipse*: slow progress
 (https://github.com/junit-team/junit5/issues/217[#217], https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566])
+// search for all issues with "JUnit" in them:
+// https://netbeans.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=STARTED&bug_status=REOPENED&query_format=advanced&short_desc=junit&short_desc_type=allwordssubstr&x=0&y=0
+* *NetBeans*: not even an issue
 
 
 === Running Tests
