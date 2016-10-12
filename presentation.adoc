@@ -1216,7 +1216,7 @@ http://codefx.org[codefx.org] / https://twitter.com/nipafx[@nipafx] / https://go
 
 you can http://blog.codefx.org/hire-nicolai-parlog/[hire me]
 
-since 2016: editor of http://sitepoint.com/java[SitePoint's Java channel]
+since 2016: editor of https://sitepoint.com/java[sitepoint.com/java]
 
 2014-2016: Java developer at http://www.disy.net/en/welcome.html[Disy]
 
