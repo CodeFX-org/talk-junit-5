@@ -21,11 +21,11 @@
 				/ <a href="https://twitter.com/nipafx" title="Nicolai on Twitter">@nipafx</a></p>
 		</div>
 	</div>
-	<div class="participant" style="width: 400px;">
-		<img src="images/logo-jaxlondon.png" class="logo">
+	<div class="participant">
+		<img src="images/logo-tdc.png" style="border-color: #000; background-color: #000 !important;" class="logo">
 		<div class="name">
-			<p><a href="https://jaxlondon.com/">JAX London</a></p>
-			<p><a href="https://twitter.com/jaxlondon" title="JAX London on Twitter">@jaxlondon</a></p>
+			<p><a href="http://2016.trondheimdc.no/">Trondheim DC</a></p>
+			<p><a href="https://twitter.com/trondheimdc" title="JAX London on Twitter">@TrondheimDC</a></p>
 		</div>
 	</div>
 </div>
@@ -53,10 +53,10 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-jaxlondon.png" class="logo">
+		<img src="images/logo-tdc.png" style="border-color: #000; background-color: #000 !important;" class="logo">
 		<div class="name"><p>
-			<a href="https://jaxlondon.com/">JAX London</a>
-				/ <a href="https://twitter.com/jaxlondon" title="JAX London on Twitter">@jaxlondon</a>
+			<a href="http://2016.trondheimdc.no/">Trondheim DC</a>
+				/ <a href="https://twitter.com/trondheimdc" title="JAX London on Twitter">@TrondheimDC</a>
 		</p></div>
 	</div>
 </footer>
