@@ -114,7 +114,7 @@ Also:
 ++++
 
 
-=== Package Visibility
+=== What's New?
 
 ```java
 class JUnit5Test {
@@ -127,8 +127,12 @@ class JUnit5Test {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ Package visibility suffices!</p>
+++++
 
-=== Lifecycle Annotations
+
+=== What's New?
 
 ```java
 @BeforeAll
@@ -144,8 +148,12 @@ void afterEach() { ... }
 static void afterAll() { ... }
 ```
 
+++++
+<p class="fragment current-visible">⇝ Lifecycle annotations have new names.</p>
+++++
 
-=== @Disabled
+
+=== What's New?
 
 ```java
 @Test
@@ -155,8 +163,12 @@ void failingTest() {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ <code>@Ignored</code> is now <code>@Disabled</code>.</p>
+++++
 
-=== Convenient Extensibility
+
+=== What's New?
 
 ```java
 @Test
@@ -166,8 +178,13 @@ void failingTest() {
 }
 ```
 
+++++
+<p class="fragment" data-fragment-index="0,1">⇝ Convenient Extensibility.</p>
+<p class="fragment" data-fragment-index="1">But how?</p>
+++++
 
-=== Assertion Failure Message
+
+=== What's New?
 
 ```java
 @Test
@@ -180,8 +197,12 @@ void someTest() {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ Failure message comes last.</p>
+++++
 
-=== Lazy Assertion Failure Message
+
+=== What's New?
 
 ```java
 @Test
@@ -194,8 +215,12 @@ void someTest() {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ Failure message can be created lazily.</p>
+++++
 
-=== assertAll
+
+=== What's New?
 
 ```java
 @Test
@@ -211,8 +236,12 @@ void assertAllProperties() {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ <code>assertAll</code> gathers results from multiple assertions</p>
+++++
 
-=== assertAll
+
+=== What's New?
 
 Output if `assertAll` fails:
 
@@ -225,7 +254,7 @@ org.opentest4j.MultipleFailuresError:
 ```
 
 
-=== assertThrows
+=== What's New?
 
 ```java
 void methodUnderTest() {
@@ -240,8 +269,37 @@ void assertExceptions() {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ <code>assertThrows</code> asserts that<br>
+	an exception of a specific type was thrown</p>
+++++
 
-=== @Nested
+
+=== What's New?
+
+```java
+@Test
+void assertExceptions() {
+	Exception ex = expectThrows(
+		Exception.class,
+		this::methodUnderTest);
+	assertEquals("Msg", ex.getMessage());
+}
+```
+
+++++
+<p class="fragment current-visible">⇝ <code>expectThrows</code> is like <code>assertThrows</code><br>
+	but also returns the exception for further examination</p>
+++++
+
+
+++++
+<p class="fragment current-visible">⇝ <code>assertThrows</code> to assert<br>
+	exception type and other properties</p>
+++++
+
+
+=== What's New?
 
 ```java
 class CountTest {
@@ -257,8 +315,12 @@ class CountTest {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ <code>@Nested</code> to organize tests in inner classes</p>
+++++
 
-=== @DisplayName
+
+=== What's New?
 
 ```java
 @DisplayName("A count")
@@ -273,15 +335,19 @@ class CountTest {
 }
 ```
 
+++++
+<p class="fragment current-visible">⇝ <code>@DisplayName</code> to show a nice name</p>
+++++
 
-=== @DisplayName
+
+=== What's new?
 
 The effects of `@Nested` and `@DisplayName`:
 
 image::images/testing-a-stack.png[Nested and DisplayName, 900]
 
 
-=== Test Parameters
+=== What's new?
 
 ```java
 @Test
@@ -290,8 +356,15 @@ void someTest(MyServer server) {
 }
 ```
 
+++++
+<div class="fragment current-visible">
+	<p>⇝ Test has parameters!</p>
+	<p>But where do they come from?</p>
+</div>
+++++
 
-=== Basics
+
+=== What's New?
 
 ++++
 <h3>Summary</h3>
