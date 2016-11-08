@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-tdc.png" style="border-color: #000; background-color: #000 !important;" class="logo">
+		<img src="images/logo-devoxx.png" style="border-color: #000; background-color: #000 !important;" class="logo">
 		<div class="name">
-			<p><a href="http://2016.trondheimdc.no/">Trondheim DC</a></p>
-			<p><a href="https://twitter.com/trondheimdc" title="JAX London on Twitter">@TrondheimDC</a></p>
+			<p><a href="http://devoxx.be/">Devoxx BE</a></p>
+			<p><a href="https://twitter.com/devoxx" title="Devoxx on Twitter">@Devoxx</a></p>
 		</div>
 	</div>
 </div>
@@ -53,10 +53,10 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-tdc.png" style="border-color: #000; background-color: #000 !important;" class="logo">
+		<img src="images/logo-devoxx.png" style="border-color: #000; background-color: #000 !important;" class="logo">
 		<div class="name"><p>
-			<a href="http://2016.trondheimdc.no/">Trondheim DC</a>
-				/ <a href="https://twitter.com/trondheimdc" title="JAX London on Twitter">@TrondheimDC</a>
+			<a href="http://devoxx.be/">Devoxx BE</a>
+				/ <a href="https://twitter.com/devoxx" title="Devoxx on Twitter">@Devoxx</a>
 		</p></div>
 	</div>
 </footer>
