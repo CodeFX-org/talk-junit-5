@@ -263,35 +263,12 @@ void methodUnderTest() {
 
 @Test
 void assertExceptions() {
-	assertThrows(
-		Exception.class,
-		this::methodUnderTest);
-}
-```
-
-++++
-<p class="fragment current-visible">⇝ <code>assertThrows</code> asserts that<br>
-	an exception of a specific type was thrown</p>
-++++
-
-
-=== What's New?
-
-```java
-@Test
-void assertExceptions() {
-	Exception ex = expectThrows(
+	Exception ex = assertThrows(
 		Exception.class,
 		this::methodUnderTest);
 	assertEquals("Msg", ex.getMessage());
 }
 ```
-
-++++
-<p class="fragment current-visible">⇝ <code>expectThrows</code> is like <code>assertThrows</code><br>
-	but also returns the exception for further examination</p>
-++++
-
 
 ++++
 <p class="fragment current-visible">⇝ <code>assertThrows</code> to assert<br>
