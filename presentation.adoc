@@ -22,10 +22,8 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-devoxx.png" style="border-color: #000; background-color: #000 !important;" class="logo">
 		<div class="name">
-			<p><a href="http://devoxx.be/">Devoxx BE</a></p>
-			<p><a href="https://twitter.com/devoxx" title="Devoxx on Twitter">@Devoxx</a></p>
+			<p>JVM Group Stockholm</p>
 		</div>
 	</div>
 </div>
@@ -53,11 +51,7 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-devoxx.png" style="border-color: #000; background-color: #000 !important;" class="logo">
-		<div class="name"><p>
-			<a href="http://devoxx.be/">Devoxx BE</a>
-				/ <a href="https://twitter.com/devoxx" title="Devoxx on Twitter">@Devoxx</a>
-		</p></div>
+		<div class="name"><p>JVM Group Stockholm</p></div>
 	</div>
 </footer>
 <script>
