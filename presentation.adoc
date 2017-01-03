@@ -80,13 +80,14 @@ Give *feedback*!
 
 === JUnit 5 Links:
 
-* https://github.com/junit-team/junit5[GitHub repository]
-* http://junit.org/junit5/docs/snapshot/user-guide[user guide]
-* https://twitter.com/junitteam[@junitteam] on Twitter
-
-Also:
-
-* http://blog.codefx.org/tag/junit-5/[articles] on my blog
+GitHub repository::
+	https://github.com/junit-team/junit5[github.com/junit-team/junit5]
+User guide::
+	http://junit.org/junit5/docs/snapshot/user-guide[junit.org/junit5/docs/snapshot/user-guide]
+Twitter::
+	https://twitter.com/junitteam[@junitteam]
+Articles on my blog::
+	http://blog.codefx.org/tag/junit-5/[blog.codefx.org/tag/junit-5/]
 
 
 
