@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-majug.png" class="logo">
+		<img src="images/logo-jug-da.png" class="logo">
 		<div class="name">
-			<p><a href="http://www.majug.de/">majug</a></p>
-			<p><a href="https://twitter.com/majug">@majug</a></p>
+			<p><a href="http://jug-da.de/">JUG Darmstadt</a></p>
+			<p><a href="https://twitter.com/JUG_DA">@JUG_DA</a></p>
 		</div>
 	</div>
 </div>
@@ -53,9 +53,9 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-majug.png" class="logo">
+		<img src="images/logo-jug-da.png" class="logo">
 		<div class="name">
-			<p><a href="http://www.majug.de/">majug</a> / <a href="https://twitter.com/majug">@majug</a></p>
+			<p><a href="http://jug-da.de/">JUG Darmstadt</a> / <a href="https://twitter.com/JUG_DA">@JUG_DA</a></p>
 		</div>
 	</div>
 </footer>
