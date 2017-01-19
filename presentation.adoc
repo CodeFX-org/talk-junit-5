@@ -1076,12 +1076,12 @@ Separation of concerns V 2.0:
 
 === Subprojects & Modules
 
-JUnit Jupiter 5.0.0-M2::
+JUnit Jupiter 5.0.0-M3::
 * `junit-jupiter-api`
 * `junit-jupiter-engine`
-JUnit Vintage 4.12.0-M2::
+JUnit Vintage 4.12.0-M3::
 * `junit-vintage-engine`
-JUnit Platform 1.0.0-M2::
+JUnit Platform 1.0.0-M3::
 * `junit-platform-engine`
 * `junit-platform-runner`
 * a lot more
@@ -1206,14 +1206,14 @@ Have fun!
 === Running Tests
 
 ++++
-<h3>Not much native support, yet</h3>
+<h3>Native support is w.i.p.</h3>
 ++++
 
 * *Maven*: work started https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206]
 // (https://github.com/junit-team/junit5/issues/31[#31], https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206], http://markmail.org/message/nx6qzkarj7r6eyf5#query:+page:1+mid:nx6qzkarj7r6eyf5+state:results[mails])
 * *Gradle*: work started https://github.com/gradle/gradle/issues/1037[#1037]
-* *IntelliJ*: EA support since https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2], https://blog.jetbrains.com/idea/2016/12/intellij-idea-2016-3-1-rc-updates-junit-5-support-to-m3/[2016.3.1] required for JUnit 5 M3
-* *Eclipse*: EA support since 4.7 M4 +
+* *IntelliJ*: since https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]; https://blog.jetbrains.com/idea/2016/12/intellij-idea-2016-3-1-rc-updates-junit-5-support-to-m3/[2016.3.1] required for M3
+* *Eclipse*: EA support with 4.7 M4 +
 with some extra work https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566]
 // search for all issues with "JUnit" in them:
 // https://netbeans.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=STARTED&bug_status=REOPENED&query_format=advanced&short_desc=junit&short_desc_type=allwordssubstr&x=0&y=0
@@ -1268,7 +1268,8 @@ junit-platform-console \
 # run a specific test
 junit-platform-console \
 	-cp ${path_to_compiled_test_classes} \
-	--select-class ${fully_qualified_test_class_name}
+	--select-class \
+	${fully_qualified_test_class_name}
 ```
 
 
