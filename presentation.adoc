@@ -22,10 +22,10 @@
 		</div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-jug-da.png" class="logo">
+		<img src="images/logo-jug-ka.png" class="logo">
 		<div class="name">
-			<p><a href="http://jug-da.de/">JUG Darmstadt</a></p>
-			<p><a href="https://twitter.com/JUG_DA">@JUG_DA</a></p>
+			<p><a href="http://jug-karlsruhe.de/">JUG Karlsruhe</a></p>
+			<p><a href="https://twitter.com/jugka">@jugka</a></p>
 		</div>
 	</div>
 </div>
@@ -53,9 +53,9 @@
 		</p></div>
 	</div>
 	<div class="participant">
-		<img src="images/logo-jug-da.png" class="logo">
+		<img src="images/logo-jug-ka.png" class="logo">
 		<div class="name">
-			<p><a href="http://jug-da.de/">JUG Darmstadt</a> / <a href="https://twitter.com/JUG_DA">@JUG_DA</a></p>
+			<p><a href="http://jug-karlsruhe.de/">JUG Karlsruhe</a> / <a href="https://twitter.com/jugka">@jugka</a></p>
 		</div>
 	</div>
 </footer>
