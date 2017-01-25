@@ -96,6 +96,126 @@ Articles on my blog::
 
 
 
+
+// ######################### //
+// T O O L S   &   S E T U P //
+// ######################### //
+
+
+[data-state="no-title"]
+== Tools & Setup
+
+++++
+<table class="toc">
+	<tr class="toc-current"><td>Tools &amp; Setup</td></tr>
+	<tr><td>Basics</td></tr>
+	<tr><td>Extensions</td></tr>
+</table>
+++++
+
+
+=== Writing Tests
+
+++++
+<h3>As Easy As Pie!</h3>
+++++
+
+
+Add this:
+
+```shell
+org.junit.jupiter
+junit-jupiter-api
+5.0.0-M3
+```
+
+Have fun!
+
+
+=== Running Tests
+
+++++
+<h3>Native support is w.i.p.</h3>
+++++
+
+* *Maven*: work started https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206]
+// (https://github.com/junit-team/junit5/issues/31[#31], https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206], http://markmail.org/message/nx6qzkarj7r6eyf5#query:+page:1+mid:nx6qzkarj7r6eyf5+state:results[mails])
+* *Gradle*: work started https://github.com/gradle/gradle/issues/1037[#1037]
+* *IntelliJ*: since https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]; https://blog.jetbrains.com/idea/2016/12/intellij-idea-2016-3-1-rc-updates-junit-5-support-to-m3/[2016.3.1] required for M3
+* *Eclipse*: EA support with 4.7 M4 +
+with some extra work https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566]
+// search for all issues with "JUnit" in them:
+// https://netbeans.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=STARTED&bug_status=REOPENED&query_format=advanced&short_desc=junit&short_desc_type=allwordssubstr&x=0&y=0
+* *NetBeans*: not even an issue
+
+
+=== Running Tests
+
+++++
+<h3>As Part Of JUnit 4</h3>
+++++
+
+* individual classes:
++
+```java
+@RunWith(JUnitPlatform.class)
+public class JUnit5Test { ... }
+```
+* all classes:
++
+```java
+@RunWith(JUnitPlatform.class)
+@SelectPackages({ "my.test.package" })
+public class JUnit5TestSuite { }
+```
+
+
+=== Running Tests
+
+++++
+<h3>With Build Tools</h3>
+++++
+
+JUnit 5 team provides rudimentary +
+Gradle plugin and Maven Surefire provider +
+(see http://junit.org/junit5/docs/snapshot/user-guide/#build-support[user guide] for details)
+
+
+=== Running Tests
+
+++++
+<h3>From Console</h3>
+++++
+
+There is a http://junit.org/junit5/docs/snapshot/user-guide/#running-tests-console-launcher[console launcher]:
+
+```bash
+# run all tests
+junit-platform-console \
+	-cp ${path_to_compiled_test_classes} \
+	--scan-class-path
+# run a specific test
+junit-platform-console \
+	-cp ${path_to_compiled_test_classes} \
+	--select-class \
+	${fully_qualified_test_class_name}
+```
+
+
+=== Tools & Setup
+
+++++
+<h3>Summary</h3>
+++++
+
+* you can start writing tests right away
+* only IntelliJ has native support
+* running with JUnit 4 is a good compromise
+
+(Read about http://blog.codefx.org/libraries/junit-5-setup/[the setup details].)
+
+
+
 // ########### //
 // B A S I C S //
 // ########### //
@@ -106,11 +226,9 @@ Articles on my blog::
 
 ++++
 <table class="toc">
-	<tr class="toc-current"><td>Basics</td></tr>
-	<tr><td>Dynamic Tests</td></tr>
-	<tr><td>Extensions</td></tr>
-	<tr><td>Architecture</td></tr>
 	<tr><td>Tools &amp; Setup</td></tr>
+	<tr class="toc-current"><td>Basics</td></tr>
+	<tr><td>Extensions</td></tr>
 </table>
 ++++
 
@@ -355,242 +473,6 @@ make a nice couple
 * parameter injection
 * no lambdas (so far)
 
-++++
-<p class="fragment current-visible">
-That's all very nice but how is it<br>
-<i>Next Generation Testing</i>?
-</p>
-++++
-
-
-
-// ######################### //
-// D Y N A M I C   T E S T S //
-// ######################### //
-
-
-[data-state="no-title"]
-== Dynamic Tests
-
-++++
-<table class="toc">
-	<tr><td>Basics</td></tr>
-	<tr class="toc-current"><td>Dynamic Tests</td></tr>
-	<tr><td>Extensions</td></tr>
-	<tr><td>Architecture</td></tr>
-	<tr><td>Tools &amp; Setup</td></tr>
-</table>
-++++
-
-
-=== Defining Tests
-
-Up to now tests were identified
-
-* by names +
-(`test...` in JUnit 3 and before)
-* by annotations +
-(`@Test` in JUnit 4 and 5)
-
-⇝ Tests had to be known at compile time.
-
-
-=== Defining Tests
-
-*So what?!*
-
-What if we want to create tests
-
-* for a set of parameters
-* based on non-source files
-* with lambdas
-
-⇝ We need to define tests at run time.
-
-
-=== Dynamic Tests To The Rescue!
-
-Allow creation of tests at run time.
-
-* tests are wrapped into `DynamicTest`-s
-* methods that create them +
-are annotated with `@TestFactory`
-
-
-=== Creating Tests
-
-```java
-@TestFactory
-List<DynamicTest> createPointTests() {
-	return Arrays.asList(
-		dynamicTest(
-			"A Great Test For Point",
-			() -> { /* test code */ } ),
-		dynamicTest(
-			"Another Great Test For Point",
-			() -> { /* test code */ } )
-	);
-}
-```
-
-
-=== Implementation
-
-The rest is straight-forward:
-
-. JUnit detects `@TestFactory` methods
-. calls them to generate tests
-. adds tests to the test tree
-. eventually runs them
-
-
-=== Parameterized Tests
-
-```java
-void pointTest(Point p) { /*...*/ }
-
-@TestFactory
-Stream<DynamicText> testingPoints() {
-	return Stream.of(
-			/* create points */)
-		.map(p ->
-			dynamicTest(
-				"Testing " + p,
-				() -> pointTest(p)));
-}
-```
-
-
-=== Parameterized Tests
-
-```java
-void pointTest(Point p) { /*...*/ }
-
-@TestFactory
-Stream<DynamicText> testingPoints() {
-	List<Point> points = asList(
-		/* create points */);
-	return DynamicTest.stream(
-		points,
-		p -> "Testing " + p,
-		p -> pointTest(p));
-}
-```
-
-
-=== File-Based Tests
-
-```java
-void pointTest(Point p) { /*...*/ }
-
-@TestFactory
-Stream<DynamicText> testingPoints() {
-	return Files
-		.lines(pathToPointFile)
-		.map(Point::parse)
-		.map(p -> dynamicTest(
-			"Testing " + p,
-			() -> pointTest(p)));
-}
-```
-
-
-=== Lambda Tests
-
-So what about lambdas?
-
-This would be great:
-
-```java
-class PointTest {
-
-	"A great test for point" -> {
-		/* test code */
-	}
-
-}
-```
-
-But how?
-
-
-=== Lambda Tests
-
-```java
-public class LambdaTest {
-
-	private List<DynamicTest> tests;
-
-	protected void λ(
-			String name, Executable test) {
-		tests.add(dynamicTest(name, test));
-	}
-
-	@TestFactory List<DynamicTest> tests() {
-		return tests;
-	}
-}
-```
-
-
-=== Lambda Tests
-
-```java
-class PointTest extends LambdaTest {{
-
-	λ("A Great Test For Point", () -> {
-		/* test code goes here */
-	});
-
-}}
-```
-
-* the inner braces create
- an https://reinhard.codes/2016/07/30/double-brace-initialisation-and-java-initialisation-blocks/[initialization block]
-* code therein is run during construction
-* JUnit will pick up the tests by calling `tests()`
-
-
-=== Lambda Tests
-
-While we're hacking... what about this?
-
-```java
-class PointTest extends LambdaTest {{
-
-	λ(a_great_test_for_point -> {
-		/* test code goes here */
-	});
-
-}}
-```
-
-Learn how to access +
-a lambda's parameter name +
-with
-http://benjiweber.co.uk/blog/2015/08/17/lambda-parameter-names-with-reflection/[this one weird trick].
-
-
-=== Dynamic Tests
-
-++++
-<h3>Summary</h3>
-++++
-
-* with `@TestFactory` and `DynamicTest` +
-we can create tests at run time:
-** for sets of parameters
-** based on external input
-** as lambdas (yay!)
-* not fully integrated in lifecycle (yet? https://github.com/junit-team/junit5/issues/378[#378])
-
-++++
-<p class="fragment current-visible">
-That's all very nice but is this already<br>
-<i>Next Generation Testing</i>?
-</p>
-++++
-
 
 
 // ################### //
@@ -603,11 +485,9 @@ That's all very nice but is this already<br>
 
 ++++
 <table class="toc">
-	<tr><td>Basics</td></tr>
-	<tr><td>Dynamic Tests</td></tr>
-	<tr class="toc-current"><td>Extensions</td></tr>
-	<tr><td>Architecture</td></tr>
 	<tr><td>Tools &amp; Setup</td></tr>
+	<tr><td>Basics</td></tr>
+	<tr class="toc-current"><td>Extensions</td></tr>
 </table>
 ++++
 
@@ -986,305 +866,6 @@ void testLogin(MyServer server) { ... }
 
 // (We left out http://blog.codefx.org/design/architecture/junit-5-extension-model/[some details].)
 
-++++
-<p class="fragment current-visible">
-That's all very nice but how is it<br>
-<i>Next Generation Testing</i>?
-</p>
-++++
-
-
-
-// ####################### //
-// A R C H I T E C T U R E //
-// ####################### //
-
-
-[data-state="no-title"]
-== Architecture
-
-++++
-<table class="toc">
-	<tr><td>Basics</td></tr>
-	<tr><td>Dynamic Tests</td></tr>
-	<tr><td>Extensions</td></tr>
-	<tr class="toc-current"><td>Architecture</td></tr>
-	<tr><td>Tools &amp; Setup</td></tr>
-</table>
-++++
-
-
-=== JUnit 4 Architecture
-
-* a single JAR (ignoring Hamcrest)
-* used by
-** developers
-** extensions
-** IDEs, build-tools
-* no separation of concerns
-
-
-=== JUnit 4 Architecture
-
-* tools provide us with awesome features!
-* but API is not powerful enough
-
-++++
-<div class="fragment current-visible">
-<div class="quoteblock"><blockquote><div class="paragraph"><p>I know, I’ll use reflection!</p></div></blockquote></div>
-<div class="ulist"><ul>
-	<li><p>nothing was safe!</p></li>
-	<li><p>bound tools to implementation details</p></li>
-	<li><p>made maintenance and evolution very hard</p></li>
-</ul></div>
-</div>
-++++
-
-
-=== Dead End
-
-Part of JUnit's success is its great tool support!
-
-But the same tools locked development in.
-
-> The success of JUnit as a platform prevents the development of JUnit as a tool. +
-(https://jaxenter.com/crowdfunding-for-junit-lambda-is-underway-119546.html[Johannes Link])
-
-
-=== Approach in JUnit 5
-
-Separation of concerns:
-
-. an API to write tests against
-. a mechanism to discover and run tests
-. an API for tools to run tests
-
-
-=== Approach in JUnit 5
-
-Separation of concerns V 2.0:
-
-. an API to write tests against
-. a mechanism to discover and run tests
-[loweralpha]
-.. specific engine per variant of tests +
-(e.g. JUnit 4 or JUnit 5)
-.. orchestration of engines
-.. API between them
-. an API for tools to run tests
-
-
-=== Subprojects & Modules
-
-JUnit Jupiter 5.0.0-M3::
-* `junit-jupiter-api`
-* `junit-jupiter-engine`
-JUnit Vintage 4.12.0-M3::
-* `junit-vintage-engine`
-JUnit Platform 1.0.0-M3::
-* `junit-platform-engine`
-* `junit-platform-runner`
-* a lot more
-
-
-=== JUnit 5 Modules
-
-image::images/architecture-limited-lean.png[style="diagram",500]
-
-
-=== Architecture
-
-++++
-<h3>Summary</h3>
-++++
-
-* clear separation of concerns
-* API for developers
-* API for tools
-
-++++
-<p class="fragment" data-fragment-index="0">
-That's all very nice but how is it<br>
-<i>Next Generation Testing</i>?
-</p>
-
-<p class="fragment" data-fragment-index="1">
-<strong>Because it opens up the platform!</strong>
-</p>
-++++
-
-
-=== Moar Engines!
-
-* want to run JUnit 4 tests? +
-⇝ create an engine for it
-* want TestNG to have support like JUnit? +
-⇝ create an engine for it
-* want to write tests in natural language? +
-⇝ create an engine for it
-
-
-=== Moar Engines!
-
-image::images/architecture-lean.png[style="diagram",500]
-
-
-=== Open Platform
-
-Once JUnit 5 adoption sets in:
-
-* tools are decoupled from implementation details
-* tools can support all frameworks (almost) equally well
-* new frameworks start with full tool support
-* developers can try out new things
-
-A new generation of test frameworks might arise!
-
-
-=== Open Platform
-
-JUnit's success as a platform +
-becomes *available to everybody*.
-
-This heralds the +
-*next generation of testing on the JVM*!
-
-
-=== Architecture
-
-++++
-<h3>Summary</h3>
-++++
-
-* clear separation of concerns: +
-APIs for developers, tools, +
-and new frameworks
-* opens up the platform
-* tool support for everybody!
-
-(There's http://blog.codefx.org/design/architecture/junit-5-architecture/[even more] to the story.)
-
-
-
-// ######################### //
-// T O O L S   &   S E T U P //
-// ######################### //
-
-
-[data-state="no-title"]
-== Tools & Setup
-
-++++
-<table class="toc">
-	<tr><td>Basics</td></tr>
-	<tr><td>Dynamic Tests</td></tr>
-	<tr><td>Extensions</td></tr>
-	<tr><td>Architecture</td></tr>
-	<tr class="toc-current"><td>Tools &amp; Setup</td></tr>
-</table>
-++++
-
-
-=== Writing Tests
-
-++++
-<h3>As Easy As Pie!</h3>
-++++
-
-
-Add this:
-
-```shell
-org.junit.jupiter
-junit-jupiter-api
-5.0.0-M3
-```
-
-Have fun!
-
-
-=== Running Tests
-
-++++
-<h3>Native support is w.i.p.</h3>
-++++
-
-* *Maven*: work started https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206]
-// (https://github.com/junit-team/junit5/issues/31[#31], https://issues.apache.org/jira/browse/SUREFIRE-1206[#1206], http://markmail.org/message/nx6qzkarj7r6eyf5#query:+page:1+mid:nx6qzkarj7r6eyf5+state:results[mails])
-* *Gradle*: work started https://github.com/gradle/gradle/issues/1037[#1037]
-* *IntelliJ*: since https://blog.jetbrains.com/idea/2016/08/using-junit-5-in-intellij-idea/[2016.2]; https://blog.jetbrains.com/idea/2016/12/intellij-idea-2016-3-1-rc-updates-junit-5-support-to-m3/[2016.3.1] required for M3
-* *Eclipse*: EA support with 4.7 M4 +
-with some extra work https://bugs.eclipse.org/bugs/show_bug.cgi?id=488566[#488566]
-// search for all issues with "JUnit" in them:
-// https://netbeans.org/bugzilla/buglist.cgi?bug_status=NEW&bug_status=STARTED&bug_status=REOPENED&query_format=advanced&short_desc=junit&short_desc_type=allwordssubstr&x=0&y=0
-* *NetBeans*: not even an issue
-
-
-=== Running Tests
-
-++++
-<h3>As Part Of JUnit 4</h3>
-++++
-
-* individual classes:
-+
-```java
-@RunWith(JUnitPlatform.class)
-public class JUnit5Test { ... }
-```
-* all classes:
-+
-```java
-@RunWith(JUnitPlatform.class)
-@SelectPackages({ "my.test.package" })
-public class JUnit5TestSuite { }
-```
-
-
-=== Running Tests
-
-++++
-<h3>With Build Tools</h3>
-++++
-
-JUnit 5 team provides rudimentary +
-Gradle plugin and Maven Surefire provider +
-(see http://junit.org/junit5/docs/snapshot/user-guide/#build-support[user guide] for details)
-
-
-=== Running Tests
-
-++++
-<h3>From Console</h3>
-++++
-
-There is a http://junit.org/junit5/docs/snapshot/user-guide/#running-tests-console-launcher[console launcher]:
-
-```bash
-# run all tests
-junit-platform-console \
-	-cp ${path_to_compiled_test_classes} \
-	--scan-class-path
-# run a specific test
-junit-platform-console \
-	-cp ${path_to_compiled_test_classes} \
-	--select-class \
-	${fully_qualified_test_class_name}
-```
-
-
-=== Tools & Setup
-
-++++
-<h3>Summary</h3>
-++++
-
-* you can start writing tests right away
-* only IntelliJ has native support
-* running with JUnit 4 is a good compromise
-
-(Read about http://blog.codefx.org/libraries/junit-5-setup/[the setup details].)
-
 
 
 // ################### //
@@ -1292,19 +873,8 @@ junit-platform-console \
 // ################### //
 
 
-== Next Generation Testing On The JVM
-
-* new API is an incremental improvement +
-full of thoughtful details
-* dynamic tests are very useful
-* extension model looks very promising
-* architecture opens up the platform
-* tool support is not there yet
-
-(Read http://blog.codefx.org/tag/junit-5/[more about JUnit 5].)
-
 [data-background="images/question-mark.jpg"]
-=== Questions?
+== Questions?
 
 +++<h3>Find Me</h3>+++
 
